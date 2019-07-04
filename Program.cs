@@ -17,7 +17,7 @@ namespace SistemaDeEstacionamentos
 
         private static void gravarUsandoEntity()
         {
-            Usuarios u = new Usuarios("Cassius", "Rua fictícia","Jardim do sei lá das quantas","Complemento", 309, "123455678", "usuario", "senha"; 
+            Usuarios u = new Usuarios("Cassius", "Rua fictícia","Jardim do sei lá das quantas","Complemento", 309, "123455678", "usuario", "senha"); 
             using (var usuarios = new UsuariosContext())
             {
                 usuarios.Usuarios.Add(u);
