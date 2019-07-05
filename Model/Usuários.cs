@@ -17,6 +17,7 @@ namespace SistemaDeEstacionamentos
 
         public Usuarios (string nome, string Logradouro, string Bairro, string Complemento, int numero, string Valor, string usuario, string senha)
         {
+            sequencial++;
             this.handler += sequencial;
             this.cpf = new CPF(Valor);
             this.nome = new Nome(nome);
