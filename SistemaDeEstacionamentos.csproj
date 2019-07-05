@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>SistemaDeEstacionamentos</RootNamespace>
     <AssemblyName>SistemaDeEstacionamentos</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -221,19 +222,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CampoNuloException.cs" />
-    <Compile Include="CPF.cs" />
-    <Compile Include="CredenciaisDeAcesso.cs" />
-    <Compile Include="Endereco.cs" />
-    <Compile Include="Nome.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Controller\CPF.cs" />
+    <Compile Include="Controller\CredenciaisDeAcesso.cs" />
+    <Compile Include="Controller\Endereco.cs" />
+    <Compile Include="Controller\Nome.cs" />
+    <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="prop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuariosContext.cs" />
-    <Compile Include="Usuários.cs" />
+    <Compile Include="Model\UsuariosContext.cs" />
+    <Compile Include="Model\Usuários.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
