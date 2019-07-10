@@ -3,9 +3,10 @@ using System;
 
 namespace SistemaDeEstacionamentos
 {
-    internal class UsuariosContext : DbContext
+    internal class SistemaEstacionamentosContext : DbContext
     {
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Estacionamento> Estacionamentos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

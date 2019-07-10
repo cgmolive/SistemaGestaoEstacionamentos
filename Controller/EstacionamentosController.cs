@@ -1,36 +1,29 @@
-﻿using SistemaDeEstacionamentos.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaDeEstacionamentos
+namespace SistemaDeEstacionamentos.Controller
 {
-   public class UsuariosController
+    public class EstacionamentosController
     {
-        static void Main(string[] args)
-        {
-
-
-            
-        }
-
         private static void Gravar()
         {
-            Usuarios u = new Usuarios("Cassius", "Rua fictícia","Jardim do sei lá das quantas","Complemento", 309, "123455678", "usuario", "senha"); 
+            Estacionamento e = new Estacionamento();
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Usuarios.Add(u);
+                repo.Estacionamentos.Add(e);
                 repo.SaveChanges();
             }
         }
+
         private static void Recuperar()
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                IList<Usuarios> usuarios = repo.Usuarios.ToList();
+                IList<Estacionamento> estacionamentos = repo.Estacionamentos.ToList();
             }
         }
 
@@ -38,13 +31,13 @@ namespace SistemaDeEstacionamentos
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                IList<Usuarios> pessoas = repo.Usuarios.ToList();
-                foreach (var pessoa in pessoas)
+                IList<Estacionamento> estacionamentos = repo.Estacionamentos.ToList();
+                foreach (var estacionamento in estacionamentos)
                 {
-                    repo.Usuarios.Remove(pessoa);
+                    repo.Estacionamentos.Remove(estacionamento);
                 }
                 repo.SaveChanges();
-                
+
             }
         }
 
@@ -52,9 +45,8 @@ namespace SistemaDeEstacionamentos
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-               //    repo.Update();
+                //    repo.Update();
             }
         }
-
     }
 }
