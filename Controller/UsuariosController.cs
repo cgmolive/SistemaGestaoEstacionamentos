@@ -52,7 +52,11 @@ namespace SistemaDeEstacionamentos
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-               //    repo.Update();
+                var usuarioParaAtualizar = repo.Usuarios.Find(Handler);
+                //Definir campo a ser atualizado
+                repo.Usuarios.Update(usuarioParaAtualizar)
+
+                repo.SaveChanges();
             }
         }
 

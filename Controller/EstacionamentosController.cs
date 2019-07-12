@@ -45,7 +45,11 @@ namespace SistemaDeEstacionamentos.Controller
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                //    repo.Update();
+                var EstacionamentoParaAtualizar = repo.Estacionamentos.Find(Handler);
+                //Definir campo a ser atualizado
+                repo.Estacionamentos.Update(EstacionamentoParaAtualizar);
+
+                repo.SaveChanges();
             }
         }
     }
