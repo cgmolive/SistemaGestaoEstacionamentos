@@ -54,7 +54,7 @@ namespace SistemaDeEstacionamentos
             {
                 var usuarioParaAtualizar = repo.Usuarios.Find(Handler);
                 //Definir campo a ser atualizado
-                repo.Usuarios.Update(usuarioParaAtualizar)
+                repo.Usuarios.Update(usuarioParaAtualizar);
 
                 repo.SaveChanges();
             }
