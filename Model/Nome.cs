@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeEstacionamentos.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace SistemaDeEstacionamentos
         public Nome(string Dados)
         {
             if (Dados == null)
-                throw new CampoNuloException();
+                throw new CampoInvalidoException();
           
             else
             {

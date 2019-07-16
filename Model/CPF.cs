@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SistemaDeEstacionamentos.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,6 +24,10 @@ namespace SistemaDeEstacionamentos
                 cpf = cpf.Trim();
                 cpf = cpf.Replace(".", "").Replace("-", "");
 
+                if (cpf.Length == 0)
+            {
+                throw new CampoNuloException();
+            }
                 if (cpf.Length != 11)
                     return false;
 
@@ -61,7 +67,7 @@ namespace SistemaDeEstacionamentos
         {
             if (IsCpf(Valor) == false)
             {
-                throw new CampoNuloException("Erro! O valor não pode ser nulo!");
+                throw new CampoInvalidoException();
             }
             else
             {
@@ -70,5 +76,8 @@ namespace SistemaDeEstacionamentos
         }
 
     }
+
+   
+    
 }
 
