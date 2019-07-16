@@ -8,7 +8,10 @@ namespace SistemaDeEstacionamentos
 {
     public class Estacionamento
     {
+        public static int ID;
+        public int Handle;
         public List<Vagas> VagasDoEstacionamento { get; set; }
+     
 
         public List<string> exibirVagasDisponiveis()
         { 
@@ -18,7 +21,8 @@ namespace SistemaDeEstacionamentos
         }
         public Estacionamento()
         {
-
+            ID++;
+            Handle = ID;
         }
     }
 }

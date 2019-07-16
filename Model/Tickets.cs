@@ -8,10 +8,9 @@ namespace SistemaDeEstacionamentos.Model
 {
     public class Tickets
     {
-        static int ID;
+        public static int ID;
         public Estacionamento Origem { get; }
-
-        private int Handle;
+        public int Handle;
         private double Valor { get; set; }
         private DateTime DataHora { get; }
         private DateTime HoraDeSaida { get; }

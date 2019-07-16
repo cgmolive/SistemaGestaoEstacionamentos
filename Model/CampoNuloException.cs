@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeEstacionamentos
 {
-    class CampoNuloException : Exception
+    public class CampoNuloException : Exception
     {
         
         public CampoNuloException()

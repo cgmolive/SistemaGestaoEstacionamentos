@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeEstacionamentos
 {
-   public class UsuariosController
+   public class UsuariosController 
     {
         static void Main(string[] args)
         {
