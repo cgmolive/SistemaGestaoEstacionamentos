@@ -19,13 +19,16 @@ namespace SistemaDeEstacionamentos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Usuarios>()
-                .HasKey(c => c.Handle);
+                .HasKey(c =>c.Handle);
 
             modelBuilder.Entity<Tickets>()
-                .HasKey(d => d.Handle);
+                .HasKey(c =>c.Handle);
 
             modelBuilder.Entity<Estacionamento>()
-                .HasKey(e => e.Handle);
+                .HasKey(c =>c.Handle);
+
+            modelBuilder.Entity<Vagas>()
+                .HasKey(c => c.Handle);
         }
     }
 }

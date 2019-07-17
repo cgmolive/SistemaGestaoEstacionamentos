@@ -10,7 +10,7 @@ namespace SistemaDeEstacionamentos.Model
     {
         public static int ID;
         public Estacionamento Origem { get; }
-        public int Handle;
+        public int Handle { get; set; }
         private double Valor { get; set; }
         private DateTime DataHora { get; }
         private DateTime HoraDeSaida { get; }

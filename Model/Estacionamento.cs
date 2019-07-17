@@ -9,7 +9,7 @@ namespace SistemaDeEstacionamentos
     public class Estacionamento
     {
         public static int ID;
-        public int Handle;
+        public int Handle { get; set; }
         public List<Vagas> VagasDoEstacionamento { get; set; }
      
 

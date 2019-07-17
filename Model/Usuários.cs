@@ -9,8 +9,8 @@ namespace SistemaDeEstacionamentos
     public class Usuarios
     {
         public static int Seq = 0;
-        public int Handle;
-         private CPF cpf { get; set; }
+        public int Handle { get; set; }
+        private CPF cpf { get; set; }
         private Nome nome { get; set; }
         private Endereco endereco { get; set; }
         private CredenciaisDeAcesso credenciaisDeAcesso;
