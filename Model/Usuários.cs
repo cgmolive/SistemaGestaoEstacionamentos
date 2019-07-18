@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeEstacionamentos.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace SistemaDeEstacionamentos
         private Nome nome { get; set; }
         private Endereco endereco { get; set; }
         private CredenciaisDeAcesso credenciaisDeAcesso;
+
+        private IList<Veiculos> CarrosCadastrados;
         
 
         public Usuarios (string nome, string Logradouro, string Bairro, string Complemento, int numero, string Valor, string usuario, string senha)
@@ -26,7 +29,11 @@ namespace SistemaDeEstacionamentos
             this.Handle = Seq;
         }
 
-        
+        public void CadastrarCarro(string Placa, string tipoDoCarro)
+        {
+            Veiculos carroNovo = new Veiculos(Placa, tipoDoCarro);
+            CarrosCadastrados.Add(carroNovo);
+        }
 
         
 

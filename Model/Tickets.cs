@@ -14,7 +14,7 @@ namespace SistemaDeEstacionamentos.Model
         private double Valor { get; set; }
         private DateTime DataHora { get; }
         private DateTime HoraDeSaida { get; }
-        private Boolean validado { get; }
+        private DateTime HoraValidacao { get; }
         public Usuarios usuario;
 
 
@@ -24,7 +24,7 @@ namespace SistemaDeEstacionamentos.Model
             ID++;
             Handle = ID;
             DataHora = DateTime.Now;
-            validado = false;
+
         }
 
     }
