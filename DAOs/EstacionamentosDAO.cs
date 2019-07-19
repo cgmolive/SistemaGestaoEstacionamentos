@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeEstacionamentos.Controller
 {
-    public class EstacionamentosController
+    public class EstacionamentosDAO
     {
         private static void Gravar()
         {

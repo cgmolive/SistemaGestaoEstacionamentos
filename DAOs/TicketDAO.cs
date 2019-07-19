@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeEstacionamentos.Controller
 {
-    public class TicketController
+    public class TicketDAO
     {
         private static void Gravar()
         {
