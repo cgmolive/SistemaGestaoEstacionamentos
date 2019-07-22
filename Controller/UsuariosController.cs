@@ -24,5 +24,12 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             //usuarios.Gravar(usuario)
             return RedirectToAction("Index");
         }
+
+        public ActionResult Form()
+        {
+            return View();
+        }
+
     }
+
 }
