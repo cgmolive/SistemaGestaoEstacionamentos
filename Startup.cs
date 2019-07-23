@@ -27,7 +27,7 @@ namespace SistemaGestaoEstacionamentosMVC
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Página de abertura do sistema de estacionamentos");
             });
         }
     }

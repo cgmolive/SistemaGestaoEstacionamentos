@@ -10,13 +10,13 @@ namespace SistemaDeEstacionamentos
    public class UsuariosDAO
     {
  
-        public void Gravar()
+        public void Gravar(Usuarios usuario)
         {
-            Usuarios u = new Usuarios("Cassius", "Rua fictícia","Jardim do sei lá das quantas","Complemento", 309, "123455678", "usuario", "senha"); 
+           
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Usuarios.Add(u);
+                repo.Usuarios.Add(usuario);
                 repo.SaveChanges();
             }
         }

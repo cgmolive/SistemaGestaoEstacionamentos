@@ -19,13 +19,13 @@ namespace SistemaDeEstacionamentos
         private IList<Veiculos> CarrosCadastrados;
         
 
-        public Usuarios (string nome, string Logradouro, string Bairro, string Complemento, int numero, string Valor, string usuario, string senha)
+        public Usuarios (Nome nome,Endereco endereco, CPF cpf, CredenciaisDeAcesso credenciaisDeAcesso)
         {
             Seq++;
-            this.cpf = new CPF(Valor);
-            this.nome = new Nome(nome);
-            this.endereco = new Endereco(Logradouro, Bairro, Complemento, numero);
-            this.credenciaisDeAcesso = new CredenciaisDeAcesso(usuario, senha);
+            this.cpf = cpf;
+            this.nome = nome;
+            this.endereco = endereco;
+            this.credenciaisDeAcesso = credenciaisDeAcesso;
             this.Handle = Seq;
         }
 

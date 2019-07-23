@@ -12582,9 +12582,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cassi\\source\\repos\\SistemaDeEstacionamentos\\SistemaGestaoEstacionamentosMVC.csproj",
-      "projectName": "SistemaGestaoEstacionamentosMVC",
-      "projectPath": "C:\\Users\\cassi\\source\\repos\\SistemaDeEstacionamentos\\SistemaGestaoEstacionamentosMVC.csproj",
+      "projectUniqueName": "C:\\Users\\cassi\\source\\repos\\SistemaDeEstacionamentos\\SistemaGestaoEstacionamentos.csproj",
+      "projectName": "SistemaGestaoEstacionamentos",
+      "projectPath": "C:\\Users\\cassi\\source\\repos\\SistemaDeEstacionamentos\\SistemaGestaoEstacionamentos.csproj",
       "packagesPath": "C:\\Users\\cassi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\cassi\\source\\repos\\SistemaDeEstacionamentos\\obj\\",
       "projectStyle": "PackageReference",

@@ -14,6 +14,12 @@ namespace SistemaDeEstacionamentos
         public int CEP { get; set; }
         public int numero;
 
+        public Endereco(int cep)
+        {
+            this.CEP = cep;
+            //Inserir codigo para inserir outros campos baseado no CEP
+        }
+
         public Endereco(string Logradouro, string Bairro, string Complemento,  int numero)
         {
             if(Logradouro == null || Bairro == null || Complemento == null)
