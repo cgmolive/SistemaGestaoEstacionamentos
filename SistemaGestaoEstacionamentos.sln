@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaGestaoEstacionamentos", "SistemaGestaoEstacionamentos.csproj", "{E9810E69-346C-4970-8489-F152F2C65DB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaGestaoEstacionamentos", "SistemaGestaoEstacionamentos.csproj", "{A1734B04-B917-46FC-A47B-EB1FD36D4294}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9810E69-346C-4970-8489-F152F2C65DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9810E69-346C-4970-8489-F152F2C65DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9810E69-346C-4970-8489-F152F2C65DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9810E69-346C-4970-8489-F152F2C65DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1734B04-B917-46FC-A47B-EB1FD36D4294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1734B04-B917-46FC-A47B-EB1FD36D4294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1734B04-B917-46FC-A47B-EB1FD36D4294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1734B04-B917-46FC-A47B-EB1FD36D4294}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {438C1291-0A00-400C-A221-66B1C1F80B01}
+		SolutionGuid = {D69DFFFE-C50F-4A91-98BA-0BF57EEE27D8}
 	EndGlobalSection
 EndGlobal

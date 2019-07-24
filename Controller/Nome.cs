@@ -1,5 +1,4 @@
-﻿using SistemaDeEstacionamentos.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +8,12 @@ namespace SistemaDeEstacionamentos
 {
     public class Nome
     {
-        public string nome { get; set; }
+        public string  Dados { get; set; }
 
         public Nome(string Dados)
         {
             if (Dados == null)
-                throw new CampoInvalidoException();
+                throw new CampoNuloException();
           
             else
             {

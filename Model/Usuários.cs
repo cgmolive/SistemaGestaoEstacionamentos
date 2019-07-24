@@ -1,5 +1,5 @@
 ﻿using SistemaDeEstacionamentos.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +17,9 @@ namespace SistemaDeEstacionamentos
         private CredenciaisDeAcesso credenciaisDeAcesso;
 
         private IList<Veiculos> CarrosCadastrados;
-        
 
-        public Usuarios (Nome nome,Endereco endereco, CPF cpf, CredenciaisDeAcesso credenciaisDeAcesso)
+
+        public Usuarios(Nome nome, Endereco endereco, CPF cpf, CredenciaisDeAcesso credenciaisDeAcesso)
         {
             Seq++;
             this.cpf = cpf;
@@ -33,9 +33,7 @@ namespace SistemaDeEstacionamentos
         {
             Veiculos carroNovo = new Veiculos(Placa, tipoDoCarro);
             CarrosCadastrados.Add(carroNovo);
+
         }
-
-        
-
     }
 }
