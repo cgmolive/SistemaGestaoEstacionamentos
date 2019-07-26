@@ -10,12 +10,13 @@ namespace SistemaGestaoEstacionamentos.Model
         public float AteQuatroHoras { get; set; }
         public float AdicionalPorHora { get; set; }
         public float ValorDiaria { get; set; }
+        public TimeSpan Carencia { get; set; }
 
         public TabelaDePreco(float AteQuatroHoras, float AdicionalPorHora, float ValorDiaria)
         {
             this.AteQuatroHoras = AteQuatroHoras;
             this.AdicionalPorHora = AdicionalPorHora;
-            this.ValorDiaria = ValorDiaria
+            this.ValorDiaria = ValorDiaria;
         }
 
         public float calculaPrecoTicket(DateTime HorarioDeEntrada, DateTime HorarioDeSaida)
@@ -25,19 +26,29 @@ namespace SistemaGestaoEstacionamentos.Model
 
             //Decisão do valor pago
             //Por padrão, vou assumir que a diária custa mais que 8 horas, e definir como limite.
-            if (TempoDecorrido.Hours <= 4)
+            if (TempoDecorrido.Minutes > 15)
             {
-                valorFinal = AteQuatroHoras;
-            }
-            else if (TempoDecorrido.Hours >= 8)
-            {
-                valorFinal = ValorDiaria;
+
+
+                if (TempoDecorrido.Hours <= 4)
+                {
+                    valorFinal = AteQuatroHoras;
+                }
+                else if (TempoDecorrido.Hours >= 8)
+                {
+                    valorFinal = ValorDiaria;
+                }
+                else
+                {
+                    valorFinal = AteQuatroHoras + ((TempoDecorrido.Hours - 4) * AdicionalPorHora);
+                }
+                return valorFinal;
+
             }
             else
             {
-                valorFinal = AteQuatroHoras + ((TempoDecorrido.Hours - 4) * AdicionalPorHora);
+                return 0;
             }
-            return valorFinal;
         }
     }
 }

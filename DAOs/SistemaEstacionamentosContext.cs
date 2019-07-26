@@ -4,7 +4,7 @@ using System;
 
 namespace SistemaDeEstacionamentos
 {
-    internal class SistemaEstacionamentosContext : DbContext
+    public class SistemaEstacionamentosContext : DbContext
     {
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Estacionamento> Estacionamentos { get; set; }

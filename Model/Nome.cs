@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SistemaDeEstacionamentos
@@ -15,11 +16,18 @@ namespace SistemaDeEstacionamentos
         {
             if (Dados == null)
                 throw new CampoInvalidoException();
-          
+
+            else if (Regex.IsMatch(Dados, (@"[^a-zA-Z0-9]")))
+            {
+                throw new CampoInvalidoException("Caracteres especiais não devem ser aceitos!");
+            }
+
             else
             {
                 this.Dados = Dados;
             }
+
         }
     }
 }
+

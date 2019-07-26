@@ -1,4 +1,7 @@
-﻿namespace SistemaDeEstacionamentos
+﻿using SistemaDeEstacionamentos.Model;
+using System.Text.RegularExpressions;
+
+namespace SistemaDeEstacionamentos
 {
     public class CredenciaisDeAcesso
     {
@@ -13,9 +16,19 @@
             }
             else
             {
-                this.usuario = usuario;
-                this.senha = senha;
+                if (Regex.IsMatch(usuario, (@"[^a-zA-Z0-9]")))
+                {
+                    throw new CampoInvalidoException("Caracteres especiais não devem ser aceitos!");
+                    
+                }
+                else
+                {
+                    this.usuario = usuario;
+                    this.senha = senha;
+                }
+
             }
+
         }
     }
 }
