@@ -11,31 +11,29 @@ namespace SistemaDeEstacionamentos
     {
         public static int Seq = 0;
         public int Handle { get; set; }
-        private CPF cpf { get; set; }
-        private Nome nome { get; set; }
-        private Endereco endereco { get; set; }
-        private CredenciaisDeAcesso credenciaisDeAcesso;
+        private CPF Cpf { get; set; }
+        private Nome Nome { get; set; }
+        private Endereco Endereco { get; set; }
+        private CredenciaisDeAcesso CredenciaisDeAcesso { get; set; } 
 
         private IList<Veiculos> CarrosCadastrados;
         
 
-        public Usuarios (Nome nome,Endereco endereco, CPF cpf, CredenciaisDeAcesso credenciaisDeAcesso)
+        public Usuarios (string nome, int cep, string cpf, string nomeDeUsuario, string senha)
         {
             Seq++;
-            this.cpf = cpf;
-            this.nome = nome;
-            this.endereco = endereco;
-            this.credenciaisDeAcesso = credenciaisDeAcesso;
+            this.Nome = new Nome(nome);
+            this.Endereco = new Endereco(cep);
+            this.CredenciaisDeAcesso = new CredenciaisDeAcesso(nomeDeUsuario, senha);
+            this.Cpf = new CPF(cpf);
             this.Handle = Seq;
         }
+
 
         public void CadastrarCarro(string Placa, string tipoDoCarro)
         {
             Veiculos carroNovo = new Veiculos(Placa, tipoDoCarro);
             CarrosCadastrados.Add(carroNovo);
         }
-
-        
-
     }
 }
