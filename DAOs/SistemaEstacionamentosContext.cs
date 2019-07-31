@@ -11,12 +11,11 @@ namespace SistemaDeEstacionamentos
 
         public DbSet<Tickets> Tickets { get; set; }
 
-
         public DbSet<Veiculos> Veiculos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = SistemaFestaDB; Trusted_Connection = true; ");
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = localdb; Trusted_Connection = true; ");
         }
 
 

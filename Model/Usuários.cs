@@ -29,6 +29,10 @@ namespace SistemaDeEstacionamentos
             this.Handle = Seq;
         }
 
+        public Usuarios()
+        {
+
+        }
 
         public void CadastrarCarro(string Placa, string tipoDoCarro)
         {

@@ -10,7 +10,7 @@ namespace SistemaDeEstacionamentos
 {
     public class CPF
     {
-        public string Valor { get; }
+        public string Valor;
 
             public bool IsCpf(string cpf)
             {

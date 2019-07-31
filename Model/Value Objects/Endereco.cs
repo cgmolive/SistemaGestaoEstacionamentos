@@ -8,11 +8,11 @@ namespace SistemaDeEstacionamentos
 {
     public class Endereco
     {
-        public string Logradouro { get; set; }
-        public string Bairro {get; set; }
-        public string Complemento { get; set; }
-        public int CEP { get; set; }
-        public int numero;
+        private string Logradouro { get; set; }
+        private string Bairro { get; set; }
+        private string Complemento { get; set; }
+        private int CEP { get; set; }
+        private int numero;
 
         public Endereco(int cep)
         {

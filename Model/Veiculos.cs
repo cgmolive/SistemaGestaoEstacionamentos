@@ -10,7 +10,7 @@ namespace SistemaDeEstacionamentos.Model
     {
         private static int ID;
 
-        public int Handle { get; }
+        public int Handle { get; set; }
 
         public string Placa { get; set; }
         public string TipoDoCarro { get; set; }

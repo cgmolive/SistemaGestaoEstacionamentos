@@ -16,17 +16,8 @@ namespace SistemaDeEstacionamentos
             }
             else
             {
-                if (Regex.IsMatch(usuario, (@"[^a-zA-Z0-9]")))
-                {
-                    throw new CampoInvalidoException("Caracteres especiais não devem ser aceitos!");
-                    
-                }
-                else
-                {
                     this.usuario = usuario;
                     this.senha = senha;
-                }
-
             }
 
         }

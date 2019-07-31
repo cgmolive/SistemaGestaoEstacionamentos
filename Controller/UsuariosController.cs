@@ -21,11 +21,10 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
         public ActionResult Adicionar(string nome, int CEP, string cpf, string nomeDeUsuario, string senha)
         {
 
-            Usuarios usuario = new Usuarios(new Nome(nome), new CPF(cpf), new Endereco(CEP), new CredenciaisDeAcesso(nomeDeUsuario, senha));
+            Usuarios usuario = new Usuarios(nome, CEP, cpf, nomeDeUsuario, senha);
             UsuariosDAO dao = new UsuariosDAO();
             dao.Gravar(usuario);
 
-        
 
             return View();
         }
