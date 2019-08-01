@@ -63,16 +63,9 @@ namespace SistemaDeEstacionamentos
 
             }
 
-        public CPF(string Valor)
+        public CPF()
         {
-            if (IsCpf(Valor) == false)
-            {
-                throw new CampoInvalidoException();
-            }
-            else
-            {
-                this.Valor = Valor;
-            }
+           
         }
 
     }

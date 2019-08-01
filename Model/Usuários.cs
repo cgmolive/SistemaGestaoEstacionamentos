@@ -11,28 +11,43 @@ namespace SistemaDeEstacionamentos
     {
         public static int Seq = 0;
         public int Handle { get; set; }
-        private CPF Cpf { get; set; }
-        private Nome Nome { get; set; }
-        private Endereco Endereco { get; set; }
-        private CredenciaisDeAcesso CredenciaisDeAcesso { get; set; } 
+        public string Cpf { get; set; }
+        public string Nome { get; set; }
+        public int cep { get; set; }
+        public string nomeDeUsuario { get; set; } 
+        public string senha { get; set; }
 
         private IList<Veiculos> CarrosCadastrados;
         
 
         public Usuarios (string nome, int cep, string cpf, string nomeDeUsuario, string senha)
         {
+            CPF validadorCPF = new CPF();
+            Nome validadorNome = new Nome();
             Seq++;
-            this.Nome = new Nome(nome);
-            this.Endereco = new Endereco(cep);
-            this.CredenciaisDeAcesso = new CredenciaisDeAcesso(nomeDeUsuario, senha);
-            this.Cpf = new CPF(cpf);
+           
+            this.cep = cep;
+            this.nomeDeUsuario = nomeDeUsuario;
             this.Handle = Seq;
+            if(validadorCPF.IsCpf(cpf)== false)
+            {
+                throw new CampoInvalidoException();
+            }
+            else
+            {
+                this.Cpf = cpf;
+            }
+
+            if (validadorNome.validaNome(nome) == false){
+                throw new CampoInvalidoException();
+            }
+            else
+            {
+                this.Nome = nome;
+            }
+
         }
 
-        public Usuarios()
-        {
-
-        }
 
         public void CadastrarCarro(string Placa, string tipoDoCarro)
         {

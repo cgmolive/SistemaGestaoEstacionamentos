@@ -12,20 +12,16 @@ namespace SistemaDeEstacionamentos
     {
         public string  Dados { get; set; }
 
-        public Nome(string Dados)
+        public bool  validaNome(string Dados)
         {
             if (Dados == null)
-                throw new CampoInvalidoException();
+               throw new CampoNuloException();
 
-            else if (Regex.IsMatch(Dados, (@"[^a-zA-Z0-9]")))
+            else if (!Regex.IsMatch(Dados, (@"[^a-zA-Z]")))
             {
-                throw new CampoInvalidoException("Caracteres especiais não devem ser aceitos!");
+                return false;
             }
-
-            else
-            {
-                this.Dados = Dados;
-            }
+            return true;
 
         }
     }
