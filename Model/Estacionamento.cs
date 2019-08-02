@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeEstacionamentos.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace SistemaDeEstacionamentos
     {
         public static int ID;
         public int Handle { get; set; }
+        public string Nome { get; set; }
         public List<Vagas> VagasDoEstacionamento { get; set; }
      
 
@@ -19,8 +21,17 @@ namespace SistemaDeEstacionamentos
              List<string> vagasDisponiveis = new List<string>();
              return vagasDisponiveis;
         }
-        public Estacionamento()
+        public Estacionamento(string Nome)
         {
+            Nome validadorDeNome = new Nome();
+            if(validadorDeNome.validaNome(Nome) == false)
+            {
+                throw new CampoInvalidoException();
+            }
+            else
+            {
+                this.Nome = Nome;
+            }
             ID++;
             Handle = ID;
         }

@@ -8,18 +8,17 @@ namespace SistemaDeEstacionamentos.Controller
 {
     public class EstacionamentosDAO
     {
-        private static void Gravar()
+        public void Gravar(Estacionamento estacionamento)
         {
-            Estacionamento e = new Estacionamento();
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Estacionamentos.Add(e);
+                repo.Estacionamentos.Add(estacionamento);
                 repo.SaveChanges();
             }
         }
 
-        private static void Recuperar()
+        public void Recuperar()
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
@@ -27,7 +26,7 @@ namespace SistemaDeEstacionamentos.Controller
             }
         }
 
-        private static void Excluir()
+        public void Excluir()
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
@@ -41,7 +40,7 @@ namespace SistemaDeEstacionamentos.Controller
             }
         }
 
-        private static void Editar(int Handler)
+        public void Editar(int Handler)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
@@ -50,6 +49,14 @@ namespace SistemaDeEstacionamentos.Controller
                 repo.Estacionamentos.Update(EstacionamentoParaAtualizar);
 
                 repo.SaveChanges();
+            }
+        }
+
+        public IList<Estacionamento> Lista()
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+                return repo.Estacionamentos.ToList();
             }
         }
     }
