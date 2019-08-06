@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using System.Web.Mvc;
 using SistemaDeEstacionamentos;
 using SistemaDeEstacionamentos.Controller;
 
@@ -10,7 +10,7 @@ namespace SistemaGestaoEstacionamentos.Controllers
 {
     public class EstacionamentosController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             EstacionamentosDAO dao = new EstacionamentosDAO();
             IList<Estacionamento> Estacionamento = dao.Lista();

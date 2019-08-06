@@ -1,37 +1,37 @@
-﻿<!DOCTYPE html>
-    <html>
-    <head>
-        <title> form </title>"
-    </head>
-    <body>
+﻿
+<h2>Form</h2>
 
-        @using (Html.BeginForm("CadastroUsuario", "Usuario", FormMethod.Post))
-        {
+<!DOCTYPE html>
+<html>
+<head>
+    <title> form </title>"
+</head>
+<body>
 
-            <form action="/Produto/Adiciona">
+    @using (Html.BeginForm("CadastroUsuario", "Usuario", FormMethod.Post))
+    {
+
+        <form action="/Produto/Adiciona">
 
 
 
-                <label for="nome">Nome:</label>
-                <input id="nome" name="nome" />
+            <label for="nome">Nome:</label>
+            <input id="nome" name="nome" />
 
-                <label for="nomeDeUsuario">NomeDeUsuario:</label>
-                <input id="nomeDeUsuario" name="nomeDeUsuario" />
+            <label for="nomeDeUsuario">NomeDeUsuario:</label>
+            <input id="nomeDeUsuario" name="nomeDeUsuario" />
 
-                <label for="senha">senha:</label>
-                <input id="senha" name="senha" />
+            <label for="senha">senha:</label>
+            <input id="senha" name="senha" />
 
-                <label for="cpf">CPF:</label>
-                <input id="cpf" name="cpf" />
+            <label for="cpf">CPF:</label>
+            <input id="cpf" name="cpf" />
 
-                <label for="senha">senha:</label>
-                <input id="senha" name="senha" />
+            <label for="CEP">CEP:</label>
+            <input id="CEP" name="CEP" />
 
-                <label for="CEP">CEP:</label>
-                <input id="CEP" name="CEP" />
-
-                <input type="submit" class="btn btn-primary" value="Cadastrar" />
-            </form>
-        }
-    </body>
+            <input type="submit" class="btn btn-primary" value="Cadastrar" />
+        </form>
+    }
+</body>
 </html>

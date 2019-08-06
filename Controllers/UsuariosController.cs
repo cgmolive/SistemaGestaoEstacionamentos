@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using System.Web.Mvc;
 using SistemaDeEstacionamentos;
 
 namespace SistemaGestaoEstacionamentosMVC.Controllers
 {
     public class UsuariosController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
 
             UsuariosDAO dao = new UsuariosDAO();
