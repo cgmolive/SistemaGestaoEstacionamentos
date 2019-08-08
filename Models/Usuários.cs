@@ -1,6 +1,8 @@
 ﻿using SistemaDeEstacionamentos.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +11,11 @@ namespace SistemaDeEstacionamentos
 {
     public class Usuarios
     {
-        public static int Seq = 0;
-        public int Handle { get; set; }
+
         public string Cpf { get; set; }
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int Handle { get; set; }
         public string Nome { get; set; }
         public int cep { get; set; }
         public string nomeDeUsuario { get; set; } 
@@ -24,11 +28,10 @@ namespace SistemaDeEstacionamentos
         {
             CPF validadorCPF = new CPF();
             Nome validadorNome = new Nome();
-            Seq++;
            
             this.cep = cep;
             this.nomeDeUsuario = nomeDeUsuario;
-            this.Handle = Seq;
+            this.senha = senha;
             if(validadorCPF.IsCpf(cpf)== false)
             {
                 throw new CampoInvalidoException();

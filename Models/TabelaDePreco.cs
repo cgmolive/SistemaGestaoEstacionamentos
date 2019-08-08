@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeEstacionamentos.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,11 @@ namespace SistemaGestaoEstacionamentos.Model
         public float ValorDiaria { get; set; }
         public TimeSpan Carencia { get; set; }
 
+
+        public TabelaDePreco()
+        {
+
+        }
         public TabelaDePreco(float AteQuatroHoras, float AdicionalPorHora, float ValorDiaria)
         {
             this.AteQuatroHoras = AteQuatroHoras;
@@ -49,6 +55,11 @@ namespace SistemaGestaoEstacionamentos.Model
             {
                 return 0;
             }
+        }
+        public TimeSpan validoPor(Tickets ticket)
+        {
+            TimeSpan TempoValidade = DateTime.Now.AddMinutes(15).Subtract(ticket.DataHora);
+            return TempoValidade;
         }
     }
 }

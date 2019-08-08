@@ -257,6 +257,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Usuarios\Form.cshtml" />
     <Content Include="Views\Usuarios\Adicionar.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

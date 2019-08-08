@@ -35,6 +35,13 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             return View();
         }
 
+
+        public ActionResult Delete(int usuarioID)
+        {
+            
+            return View();
+        }
+
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaGestaoEstacionamentos.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,9 @@ namespace SistemaDeEstacionamentos.Model
         public Estacionamento Origem { get; }
         public int Handle { get; set; }
         private double Valor { get; set; }
-        private DateTime DataHora { get; }
-        private DateTime HoraDeSaida { get; }
-        private DateTime HoraValidacao { get; }
+        public DateTime DataHora { get; }
+        public DateTime HoraDeSaida { get; }
+        public DateTime HoraValidacao { get; set; }
         public Usuarios usuario;
 
 
@@ -27,8 +28,19 @@ namespace SistemaDeEstacionamentos.Model
 
         }
 
+        public string validaTicket(Tickets ticket)
+        {
+            TabelaDePreco tabelaDePreco = new TabelaDePreco();
+            if (HoraValidacao == null)
+            {
+                HoraValidacao = DateTime.Now.AddMinutes(15);
+                return ("Ticket válido até " + tabelaDePreco.validoPor(ticket));
+            }
+            else
+            {
+                return ("Ticket não validado! Por favor valide seu ticket.");
+            }
+
+        }
     }
-
-   
-
 }

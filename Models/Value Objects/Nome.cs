@@ -17,10 +17,10 @@ namespace SistemaDeEstacionamentos
             if (Dados == null)
                throw new CampoNuloException();
 
-            else if (!Regex.IsMatch(Dados, (@"[^a-zA-Z]")))
-            {
-                return false;
-            }
+            //else if (Regex.IsMatch(Dados, (@"[^a-zA-Z]")))
+            //{
+            //    return false;
+            //}
             return true;
 
         }

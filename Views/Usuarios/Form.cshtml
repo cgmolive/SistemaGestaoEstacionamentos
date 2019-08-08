@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    @using (Html.BeginForm("CadastroUsuario", "Usuario", FormMethod.Post))
+    @using (Html.BeginForm("Adicionar", "Usuarios", FormMethod.Post))
     {
 
         <form action="/Produto/Adiciona">
@@ -22,7 +22,7 @@
             <input id="nomeDeUsuario" name="nomeDeUsuario" />
 
             <label for="senha">senha:</label>
-            <input id="senha" name="senha" />
+            <input id="senha"type="password" name="senha" />
 
             <label for="cpf">CPF:</label>
             <input id="cpf" name="cpf" />
