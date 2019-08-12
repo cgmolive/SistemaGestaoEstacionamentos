@@ -9,7 +9,7 @@ namespace SistemaDeEstacionamentos.Controller
 {
     public class TicketDAO
     {
-        private static void Gravar()
+        public void GerarTicket()
         {
             Tickets t = new Tickets();
 
@@ -19,13 +19,16 @@ namespace SistemaDeEstacionamentos.Controller
                 repo.SaveChanges();
             }
         }
-        private static void Recuperar()
+        public void Recuperar()
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
                 IList<Tickets> tickets = repo.Tickets.ToList();
             }
         }
-        
+        public void Valida(Tickets ticket)
+        {
+            
+        }
     }
 }

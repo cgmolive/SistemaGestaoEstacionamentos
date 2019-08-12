@@ -198,11 +198,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EstacionamentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="DAOs\EstacionamentosDAO.cs" />
     <Compile Include="DAOs\SistemaEstacionamentosContext.cs" />
     <Compile Include="DAOs\TicketDAO.cs" />
     <Compile Include="DAOs\UsuariosDAO.cs" />
+    <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -259,9 +262,11 @@
     <Content Include="Views\Usuarios\Adicionar.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Tickets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

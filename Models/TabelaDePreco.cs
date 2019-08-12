@@ -56,7 +56,7 @@ namespace SistemaGestaoEstacionamentos.Model
                 return 0;
             }
         }
-        public TimeSpan validoPor(Tickets ticket)
+        public TimeSpan ValidoPor(Tickets ticket)
         {
             TimeSpan TempoValidade = DateTime.Now.AddMinutes(15).Subtract(ticket.DataHora);
             return TempoValidade;

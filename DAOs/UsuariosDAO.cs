@@ -62,5 +62,15 @@ namespace SistemaDeEstacionamentos
             }
         }
 
+
+        public Usuarios BuscaUsuario(string login, string senha)
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+                return repo.Usuarios.FirstOrDefault(x => x.nomeDeUsuario == login && x.senha == senha);
+            }
+            
+        }
+
     }
 }

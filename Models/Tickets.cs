@@ -16,7 +16,7 @@ namespace SistemaDeEstacionamentos.Model
         public DateTime DataHora { get; }
         public DateTime HoraDeSaida { get; }
         public DateTime HoraValidacao { get; set; }
-        public Usuarios usuario;
+        public Usuarios usuario { get; set; }
 
 
         public Tickets()
@@ -28,17 +28,17 @@ namespace SistemaDeEstacionamentos.Model
 
         }
 
-        public string validaTicket(Tickets ticket)
+        public string validaTicket()
         {
             TabelaDePreco tabelaDePreco = new TabelaDePreco();
             if (HoraValidacao == null)
             {
-                HoraValidacao = DateTime.Now.AddMinutes(15);
-                return ("Ticket válido até " + tabelaDePreco.validoPor(ticket));
+                HoraValidacao = DateTime.Now;
+                return ("Ticket válido até " + tabelaDePreco.ValidoPor(this));
             }
             else
             {
-                return ("Ticket não validado! Por favor valide seu ticket.");
+                return ("Ticket já validado.");
             }
 
         }

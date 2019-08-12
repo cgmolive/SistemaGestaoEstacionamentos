@@ -1,18 +1,18 @@
 ﻿
-<h2>Form</h2>
+<h2>Cadastro de usuario</h2>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title> form </title>"
+    <title> formulario de cadastro </title>
 </head>
 <body>
 
     @using (Html.BeginForm("Adicionar", "Usuarios", FormMethod.Post))
     {
 
-        <form action="/Produto/Adiciona">
-
+        <form action="/Usuarios/Adicionar">
+            @Html.AntiForgeryToken()
 
 
             <label for="nome">Nome:</label>

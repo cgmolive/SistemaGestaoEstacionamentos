@@ -4,14 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using SistemaDeEstacionamentos;
+using SistemaGestaoEstacionamentos.Filtros;
 
 namespace SistemaGestaoEstacionamentosMVC.Controllers
 {
     public class UsuariosController : Controller
     {
+
+        [AutorizacaoFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult Index()
         {
-
+        
             UsuariosDAO dao = new UsuariosDAO();
             IList<Usuarios> usuarios = dao.Lista();
             ViewBag.Usuarios = usuarios;

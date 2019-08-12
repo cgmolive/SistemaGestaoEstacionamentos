@@ -1,0 +1,30 @@
+﻿
+<h2>Form</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> form </title>
+</head>
+<body>
+    
+
+        <a>@ViewBag.error</a>
+
+        <form action="/Login/AutenticaLogin" method="post">
+
+
+
+            <label for="login">Login:</label>
+            <input id="login" name="login" />
+
+            <label for="senha">senha:</label>
+            <input id="senha" type="password" name="senha"/>
+
+
+            <input type="submit" class="btn btn-primary" value="Login" />
+        </form>
+        
+
+</body>
+</html>

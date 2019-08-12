@@ -17,7 +17,7 @@ namespace SistemaDeEstacionamentos
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Handle { get; set; }
         public string Nome { get; set; }
-        public int cep { get; set; }
+        public int Cep { get; set; }
         public string nomeDeUsuario { get; set; } 
         public string senha { get; set; }
 
@@ -29,7 +29,7 @@ namespace SistemaDeEstacionamentos
             CPF validadorCPF = new CPF();
             Nome validadorNome = new Nome();
            
-            this.cep = cep;
+            Cep = cep;
             this.nomeDeUsuario = nomeDeUsuario;
             this.senha = senha;
             if(validadorCPF.IsCpf(cpf)== false)
@@ -38,7 +38,7 @@ namespace SistemaDeEstacionamentos
             }
             else
             {
-                this.Cpf = cpf;
+                Cpf = cpf;
             }
 
             if (validadorNome.validaNome(nome) == false){
@@ -46,7 +46,7 @@ namespace SistemaDeEstacionamentos
             }
             else
             {
-                this.Nome = nome;
+                Nome = nome;
             }
 
         }
