@@ -24,6 +24,12 @@ namespace SistemaDeEstacionamentos
             modelBuilder.Entity<Usuarios>()
                 .HasKey(c => c.Handle);
 
+
+            modelBuilder.Entity<Usuarios>()
+                .HasMany(c => c.Carros)
+                .WithOne(e => e.Motorista);
+
+
             modelBuilder.Entity<Tickets>()
                 .HasKey(c => c.Handle);
 
@@ -35,6 +41,10 @@ namespace SistemaDeEstacionamentos
 
             modelBuilder.Entity<Veiculos>()
                 .HasKey(c => c.Handle);
+
+            modelBuilder.Entity<Tickets>()
+               .HasOne(c => c.Veiculo)
+               .WithMany(e => e.tickets);
         }
     }
 }

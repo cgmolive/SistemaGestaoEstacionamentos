@@ -25,10 +25,10 @@ namespace SistemaGestaoEstacionamentos.Model
             this.ValorDiaria = ValorDiaria;
         }
 
-        public float calculaPrecoTicket(DateTime HorarioDeEntrada, DateTime HorarioDeSaida)
+        public float calculaPrecoTicket(TimeSpan TempoDecorrido)
         {
             float valorFinal;
-            TimeSpan TempoDecorrido = HorarioDeEntrada.Subtract(HorarioDeSaida);
+       
 
             //Decisão do valor pago
             //Por padrão, vou assumir que a diária custa mais que 8 horas, e definir como limite.
@@ -58,7 +58,7 @@ namespace SistemaGestaoEstacionamentos.Model
         }
         public TimeSpan ValidoPor(Tickets ticket)
         {
-            TimeSpan TempoValidade = DateTime.Now.AddMinutes(15).Subtract(ticket.DataHora);
+            TimeSpan TempoValidade = DateTime.Now.AddMinutes(15).Subtract(ticket.DataHoraEntrada);
             return TempoValidade;
         }
     }

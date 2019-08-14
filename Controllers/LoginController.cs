@@ -1,4 +1,5 @@
 ﻿using SistemaDeEstacionamentos;
+using SistemaGestaoEstacionamentos.Filtros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace SistemaGestaoEstacionamentos.Controllers
 
             if (usuario != null)
             {
-                Session["LogadoComoUsuario"] = usuario;
+                Session["UsuarioLogado"] = usuario;
                 return RedirectToAction("Index", "Home");
             }
             else

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using SistemaDeEstacionamentos;
+using SistemaDeEstacionamentos.Model;
+using SistemaGestaoEstacionamentos.DAOs;
 using SistemaGestaoEstacionamentos.Filtros;
 
 namespace SistemaGestaoEstacionamentosMVC.Controllers
@@ -12,7 +14,6 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
     {
 
         [AutorizacaoFilter]
-        [ValidateAntiForgeryToken]
         public ActionResult Index()
         {
         
@@ -40,11 +41,13 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
         }
 
 
-        public ActionResult Delete(int usuarioID)
+        public ActionResult Delete(int Handle)
         {
             
             return View();
         }
+
+  
 
     }
 

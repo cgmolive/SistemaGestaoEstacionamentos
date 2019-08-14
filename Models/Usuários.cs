@@ -20,8 +20,8 @@ namespace SistemaDeEstacionamentos
         public int Cep { get; set; }
         public string nomeDeUsuario { get; set; } 
         public string senha { get; set; }
-
-        private IList<Veiculos> CarrosCadastrados;
+        public ICollection<Veiculos> Carros { get; set; }
+        public Veiculos carroPadrao { get; set; }
         
 
         public Usuarios (string nome, int cep, string cpf, string nomeDeUsuario, string senha)
@@ -55,7 +55,11 @@ namespace SistemaDeEstacionamentos
         public void CadastrarCarro(string Placa, string tipoDoCarro)
         {
             Veiculos carroNovo = new Veiculos(Placa, tipoDoCarro);
-            CarrosCadastrados.Add(carroNovo);
+            Carros.Add(carroNovo);
+            if(carroPadrao == null)
+            {
+                carroPadrao = carroNovo;
+            }
         }
     }
 }

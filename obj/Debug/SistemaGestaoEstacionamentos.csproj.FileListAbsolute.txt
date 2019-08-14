@@ -260,3 +260,5 @@ C:\Users\cassi\source\repos\SistemaDeEstacionamentos\obj\Debug\SistemaGestaoEsta
 C:\Users\cassi\source\repos\SistemaDeEstacionamentos\obj\Debug\SistemaGestaoEstacionamentos.csproj.CopyComplete
 C:\Users\cassi\source\repos\SistemaDeEstacionamentos\obj\Debug\SistemaGestaoEstacionamentos.dll
 C:\Users\cassi\source\repos\SistemaDeEstacionamentos\obj\Debug\SistemaGestaoEstacionamentos.pdb
+C:\Users\cassi\source\repos\SistemaDeEstacionamentos\bin\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\cassi\source\repos\SistemaDeEstacionamentos\bin\Microsoft.EntityFrameworkCore.Design.xml

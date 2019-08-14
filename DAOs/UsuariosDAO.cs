@@ -20,23 +20,14 @@ namespace SistemaDeEstacionamentos
                 repo.SaveChanges();
             }
         }
-        public void Recuperar()
-        {
-            using (var repo = new SistemaEstacionamentosContext())
-            {
-                IList<Usuarios> usuarios = repo.Usuarios.ToList();
-            }
-        }
 
-        public void Excluir()
+
+        public void Excluir(int Handle)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                IList<Usuarios> pessoas = repo.Usuarios.ToList();
-                foreach (var pessoa in pessoas)
-                {
-                    repo.Usuarios.Remove(pessoa);
-                }
+                var usuarioParaRemover = repo.Usuarios.Find(Handle);
+                repo.Usuarios.Remove(usuarioParaRemover);
                 repo.SaveChanges();
                 
             }
@@ -50,11 +41,11 @@ namespace SistemaDeEstacionamentos
             }
         } 
 
-        public  void Editar(int Handler)
+        public  void Editar(int Handle)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                var usuarioParaAtualizar = repo.Usuarios.Find(Handler);
+                var usuarioParaAtualizar = repo.Usuarios.Find(Handle);
                 //Definir campo a ser atualizado
                 repo.Usuarios.Update(usuarioParaAtualizar);
 
@@ -63,7 +54,7 @@ namespace SistemaDeEstacionamentos
         }
 
 
-        public Usuarios BuscaUsuario(string login, string senha)
+    public Usuarios BuscaUsuario(string login, string senha)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {

@@ -9,21 +9,20 @@ namespace SistemaDeEstacionamentos.Controller
 {
     public class TicketDAO
     {
-        public void GerarTicket()
+        public void GerarTicket(Tickets ticket)
         {
-            Tickets t = new Tickets();
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Tickets.Add(t);
+                repo.Tickets.Add(ticket);
                 repo.SaveChanges();
             }
         }
-        public void Recuperar()
+        public IList<Tickets> Lista()
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                IList<Tickets> tickets = repo.Tickets.ToList();
+                return repo.Tickets.ToList();
             }
         }
         public void Valida(Tickets ticket)
