@@ -1,0 +1,21 @@
+﻿<h2>Cadastro de Estacionamento</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adicionar Estacionamento </title>
+</head>
+
+
+<body>
+    @using (Html.BeginForm("Adicionar", "Estacionamentos", FormMethod.Post))
+    {
+            <form action="/Estacionamentos/Adicionar">
+                <label for="nome">Nome:</label>
+                <input id="nome" name="nome" />
+
+                <input type="submit" class="btn btn-primary" value="Adicionar"/>
+            </form>
+            }
+    </body>
+</html>

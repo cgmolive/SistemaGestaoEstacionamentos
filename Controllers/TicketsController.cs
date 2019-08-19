@@ -28,7 +28,7 @@ namespace SistemaGestaoEstacionamentos.Controllers
             Usuarios user = (Usuarios)Session["usuarioLogado"];
             
             Tickets ticket = new Tickets();
-            ticket.Veiculo = user.carroPadrao;
+            ticket.VeiculoId = user.carroPadraoId;
             TicketDAO dao = new TicketDAO();
             dao.GerarTicket(ticket);
             return View();

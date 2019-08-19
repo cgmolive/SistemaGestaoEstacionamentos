@@ -20,13 +20,11 @@ namespace SistemaGestaoEstacionamentos.DAOs
             }
         }
 
-        public void Excluir(int Handle)
+        public void Excluir(Veiculos veiculo)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                var veiculoParaRemover = repo.Veiculos.Find(Handle);repo.Veiculos.Find(Handle);
-
-                repo.Veiculos.Remove(veiculoParaRemover);
+                veiculo.Ativo = false;
                 repo.SaveChanges();           
             }
         }
@@ -43,12 +41,18 @@ namespace SistemaGestaoEstacionamentos.DAOs
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                var veiculoParaAtualizar = repo.Veiculos.FirstOrDefault(x => x.Handle == Handle );
+                var veiculoParaAtualizar = BuscaPorId(Handle);
                 repo.Veiculos.Update(veiculoParaAtualizar);
 
                 repo.SaveChanges();
             }
         }
+        public Veiculos BuscaPorId(double Handle)
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+                return repo.Veiculos.FirstOrDefault(x => x.Handle == Handle);
+        }
+
 
     }
 }

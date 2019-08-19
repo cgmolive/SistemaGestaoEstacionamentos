@@ -21,7 +21,7 @@ namespace SistemaDeEstacionamentos
         public string nomeDeUsuario { get; set; } 
         public string senha { get; set; }
         public ICollection<Veiculos> Carros { get; set; }
-        public Veiculos carroPadrao { get; set; }
+        public long carroPadraoId { get; set; }
         
 
         public Usuarios (string nome, int cep, string cpf, string nomeDeUsuario, string senha)
@@ -56,9 +56,9 @@ namespace SistemaDeEstacionamentos
         {
             Veiculos carroNovo = new Veiculos(Placa, tipoDoCarro);
             Carros.Add(carroNovo);
-            if(carroPadrao == null)
+            if(carroPadraoId == 0)
             {
-                carroPadrao = carroNovo;
+                carroPadraoId = carroNovo.Handle;
             }
         }
     }

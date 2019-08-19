@@ -13,11 +13,12 @@ namespace SistemaDeEstacionamentos.Model
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
 
-        public int Handle { get; set; }
+        public long Handle { get; set; }
 
         public string Placa { get; set; }
         public string TipoDoCarro { get; set; }
 
+        public int MotoristaId { get; set; }
         public Usuarios Motorista { get; set; }
 
         public bool Ativo { get; set; }
@@ -28,10 +29,9 @@ namespace SistemaDeEstacionamentos.Model
 
         public Veiculos(string placa, string tipoDoCarro)
         { 
-            this.Placa = placa;
-            this.TipoDoCarro = tipoDoCarro;
+            Placa = placa;
+            TipoDoCarro = tipoDoCarro;
             Ativo = true;
-
         }
     }
 }

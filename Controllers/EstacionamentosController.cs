@@ -29,5 +29,10 @@ namespace SistemaGestaoEstacionamentos.Controllers
             return View();
         }
 
+        public ActionResult Editar(int handle)
+        {
+            return View();
+        }
+
     }
 }

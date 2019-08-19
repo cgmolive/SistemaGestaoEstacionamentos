@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SistemaDeEstacionamentos.Model.Veiculos>
+
+@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Handle</th>
+                <th>Placa</th>
+                <th>TipoDoCarro</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var veiculos in Model)
+            {
+                <tr>
+
+                    <td>@veiculos.Handle</td>
+                    <td>@veiculos.Placa</td>
+                    <td>@veiculos.TipoDoCarro</td>
+                    <td><a class="btn btn-danger" href="/Veiculos/Excluir/@veiculos.Handle">Excluir</a></td>    
+                    @Html.Action("Excluir","Veiculos", new { Handle = veiculos.Handle})
+
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+
+    <button id=" =AdicionarCarro" name=" Adicionar-Carro" class=" btn btn-success" onclick="window.location.href = '/Veiculos/CadastrarVeiculo';">Cadastrar Veiculo</button>
+</body>
+</html>
+
+

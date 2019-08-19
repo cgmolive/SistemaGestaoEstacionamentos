@@ -48,24 +48,24 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
                     b.Property<double>("Valor");
 
-                    b.Property<int?>("VeiculoHandle");
+                    b.Property<long>("VeiculoId");
 
                     b.HasKey("Handle");
 
-                    b.HasIndex("VeiculoHandle");
+                    b.HasIndex("VeiculoId");
 
                     b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("SistemaDeEstacionamentos.Model.Veiculos", b =>
                 {
-                    b.Property<int>("Handle")
+                    b.Property<long>("Handle")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("Ativo");
 
-                    b.Property<int?>("MotoristaHandle");
+                    b.Property<int>("MotoristaId");
 
                     b.Property<string>("Placa");
 
@@ -73,7 +73,7 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
                     b.HasKey("Handle");
 
-                    b.HasIndex("MotoristaHandle");
+                    b.HasIndex("MotoristaId");
 
                     b.ToTable("Veiculos");
                 });
@@ -90,15 +90,13 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<int?>("carroPadraoHandle");
+                    b.Property<long>("carroPadraoId");
 
                     b.Property<string>("nomeDeUsuario");
 
                     b.Property<string>("senha");
 
                     b.HasKey("Handle");
-
-                    b.HasIndex("carroPadraoHandle");
 
                     b.ToTable("Usuarios");
                 });
@@ -126,21 +124,16 @@ namespace SistemaGestaoEstacionamentos.Migrations
                 {
                     b.HasOne("SistemaDeEstacionamentos.Model.Veiculos", "Veiculo")
                         .WithMany("tickets")
-                        .HasForeignKey("VeiculoHandle");
+                        .HasForeignKey("VeiculoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SistemaDeEstacionamentos.Model.Veiculos", b =>
                 {
                     b.HasOne("SistemaDeEstacionamentos.Usuarios", "Motorista")
                         .WithMany("Carros")
-                        .HasForeignKey("MotoristaHandle");
-                });
-
-            modelBuilder.Entity("SistemaDeEstacionamentos.Usuarios", b =>
-                {
-                    b.HasOne("SistemaDeEstacionamentos.Model.Veiculos", "carroPadrao")
-                        .WithMany()
-                        .HasForeignKey("carroPadraoHandle");
+                        .HasForeignKey("MotoristaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SistemaDeEstacionamentos.Vagas", b =>

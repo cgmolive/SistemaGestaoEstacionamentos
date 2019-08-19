@@ -20,7 +20,8 @@ namespace SistemaDeEstacionamentos.Model
         public DateTime DataHoraValidacao { get; set; }
         public TimeSpan TempoDecorrido { get; set; }
         public Veiculos Veiculo { get; set; }
-        
+        public long VeiculoId { get; set; }
+
 
         public Tickets()
         {

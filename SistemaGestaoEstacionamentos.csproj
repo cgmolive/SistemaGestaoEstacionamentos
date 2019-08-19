@@ -205,7 +205,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
-    <Compile Include="Controllers\VeiculoController.cs" />
+    <Compile Include="Controllers\VeiculosController.cs" />
     <Compile Include="DAOs\EstacionamentosDAO.cs" />
     <Compile Include="DAOs\SistemaEstacionamentosContext.cs" />
     <Compile Include="DAOs\TicketDAO.cs" />
@@ -215,20 +215,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20190814195308_Tickets.cs" />
-    <Compile Include="Migrations\20190814195308_Tickets.designer.cs">
-      <DependentUpon>20190814195308_Tickets.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190814195603_Ticket_2.cs" />
-    <Compile Include="Migrations\20190814195603_Ticket_2.designer.cs">
-      <DependentUpon>20190814195603_Ticket_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190814201548_Ticket_4.cs" />
-    <Compile Include="Migrations\20190814201548_Ticket_4.designer.cs">
-      <DependentUpon>20190814201548_Ticket_4.cs</DependentUpon>
+    <Compile Include="Migrations\20190819201001_initial.cs" />
+    <Compile Include="Migrations\20190819201001_initial.designer.cs">
+      <DependentUpon>20190819201001_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SistemaEstacionamentosContextModelSnapshot.cs" />
-    <Compile Include="Models\CategoriaDeVeiculo.cs" />
     <Compile Include="Models\Estacionamento.cs" />
     <Compile Include="Models\Exceptions\CampoInvalidoException.cs" />
     <Compile Include="Models\Exceptions\CampoNuloException.cs" />
@@ -283,10 +274,13 @@
     <Content Include="Views\Usuarios\Delete.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
-    <Content Include="Views\Veiculo\Index.cshtml" />
-    <Content Include="Views\Usuarios\CadastrarCarro.cshtml" />
-    <Content Include="Views\Veiculo\Adicionar.cshtml" />
+    <Content Include="Views\Veiculos\Index.cshtml" />
     <Content Include="Views\Tickets\GerarTicket.cshtml" />
+    <Content Include="Views\Veiculos\CadastrarVeiculo.cshtml" />
+    <Content Include="Views\Estacionamentos\Adicionar.cshtml" />
+    <Content Include="Views\Estacionamentos\Index.cshtml" />
+    <Content Include="Views\Veiculos\Excluir.cshtml" />
+    <Content Include="Views\Veiculos\DefinirCarroAtivo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

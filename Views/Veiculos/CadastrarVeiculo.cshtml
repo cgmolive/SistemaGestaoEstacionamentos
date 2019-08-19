@@ -1,0 +1,29 @@
+﻿
+<h2>Cadastro de veículo</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> formulario de cadastro de veículo </title>
+</head>
+<body>
+
+    @using (Html.BeginForm("CadastrarVeiculo", "Veiculos", FormMethod.Post))
+    {
+
+        <form action="/Veiculos/CadastrarVeiculo">
+            @Html.AntiForgeryToken()
+
+
+            <label for="placa">Placa:</label>
+            <input id="placa" name="placa" />
+
+            <label for="TipoDoCarro">TipoDoCarro:</label>
+            <input id="tipoDoCarro" name="tipoDoCarro" />
+
+
+            <input type="submit" class="btn btn-primary" value="Cadastrar" />
+        </form>
+    }
+</body>
+</html>
