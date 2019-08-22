@@ -15,8 +15,12 @@ namespace SistemaGestaoEstacionamentos.DAOs
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Veiculos.Add(veiculo);
-                repo.SaveChanges();
+                if(veiculo != null)
+                {
+                    repo.Veiculos.Add(veiculo);
+                    repo.SaveChanges();
+                }
+
             }
         }
 

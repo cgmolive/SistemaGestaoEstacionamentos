@@ -23,21 +23,19 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             return View();
         }
 
-        public ActionResult Adicionar(string nome, int CEP, string cpf, string nomeDeUsuario, string senha, string logradouro, string cidade, string estado)
-        {
 
-            Usuarios usuario = new Usuarios(nome, CEP, cpf, nomeDeUsuario, senha,logradouro, cidade, estado);
+        [HttpPost]
+        public ActionResult Adicionar(Usuarios usuario)
+        {
             UsuariosDAO dao = new UsuariosDAO();
             dao.Gravar(usuario);
-
-
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Form()
         {
-
-            return View();
+            Usuarios usuario = new Usuarios();
+            return View(usuario);
         }
 
 

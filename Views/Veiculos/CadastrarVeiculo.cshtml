@@ -8,10 +8,9 @@
 </head>
 <body>
 
-    @using (Html.BeginForm("CadastrarVeiculo", "Veiculos", FormMethod.Post))
-    {
-
-        <form action="/Veiculos/CadastrarVeiculo">
+    @*@using (Html.BeginForm("CadastrarVeiculo", "Veiculos", FormMethod.Post))*@
+    
+        <form action="/Veiculos/CadastrarVeiculo" method="post">
             @Html.AntiForgeryToken()
 
 
@@ -24,6 +23,5 @@
 
             <input type="submit" class="btn btn-primary" value="Cadastrar" />
         </form>
-    }
 </body>
 </html>

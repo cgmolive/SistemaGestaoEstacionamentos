@@ -14,11 +14,14 @@ namespace SistemaGestaoEstacionamentos.Controllers
     public class VeiculosController : Controller
     {
         // GET: Veiculo
+        //[HttpGet]
         public ActionResult Index()
         {
             VeiculosDAO dao = new VeiculosDAO();
+            Usuarios user = (Usuarios)Session["usuarioLogado"];
             IList<Veiculos> veiculos = dao.Lista();
-            return View(veiculos);
+            var veiculosUsuario = dao.Lista().Where(x => x.MotoristaId == user.Handle);
+            return View(veiculosUsuario);
         }
 
         public ActionResult Editar(int Handle)
@@ -30,15 +33,24 @@ namespace SistemaGestaoEstacionamentos.Controllers
             return View();
         }
 
-        public ActionResult CadastrarVeiculo(string placa, string tipoDoCarro)
+        public ActionResult CadastrarVeiculo()
         {
-
             Usuarios user = (Usuarios)Session["usuarioLogado"];
-            Veiculos veiculo = new Veiculos(placa, tipoDoCarro);
+            Veiculos veiculo = new Veiculos();
+            return View(veiculo);
+        }
+
+        [HttpPost]
+        public ActionResult CadastrarVeiculo(Veiculos veiculos)
+        {
+            Usuarios user = (Usuarios)Session["usuarioLogado"];
             VeiculosDAO dao = new VeiculosDAO();
-            veiculo.MotoristaId = user.Handle;
-            dao.Gravar(veiculo);
-            return View();
+            veiculos.MotoristaId = user.Handle;
+            if (ModelState.IsValid)
+            {
+                dao.Gravar(veiculos);
+            }
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Excluir(long Handle)

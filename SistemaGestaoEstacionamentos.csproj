@@ -217,9 +217,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20190820172223_Endereco_completo.cs" />
-    <Compile Include="Migrations\20190820172223_Endereco_completo.designer.cs">
-      <DependentUpon>20190820172223_Endereco_completo.cs</DependentUpon>
+    <Compile Include="Migrations\20190822184559_Nova.cs" />
+    <Compile Include="Migrations\20190822184559_Nova.designer.cs">
+      <DependentUpon>20190822184559_Nova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190822192052_FixDateTime.cs" />
+    <Compile Include="Migrations\20190822192052_FixDateTime.designer.cs">
+      <DependentUpon>20190822192052_FixDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190822192320_Fix_2_DateTime.cs" />
+    <Compile Include="Migrations\20190822192320_Fix_2_DateTime.designer.cs">
+      <DependentUpon>20190822192320_Fix_2_DateTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SistemaEstacionamentosContextModelSnapshot.cs" />
     <Compile Include="Models\Estacionamento.cs" />
@@ -250,6 +258,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\BuscaAJAXItem.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />

@@ -13,6 +13,8 @@
 
 </head>
 <body>
+    <label>Buscar</label>
+    <input type="text" name="filtro" id="filtro" placeholder="Digite a placa do veículo">
     <table class="table">
 
         <thead>
@@ -26,10 +28,10 @@
         <tbody>
             @foreach (var veiculos in Model)
             {
-                <tr>
+                <tr class="carro">
 
                     <td>@veiculos.Handle</td>
-                    <td>@veiculos.Placa</td>
+                    <td class="placa">@veiculos.Placa</td>
                     <td>@veiculos.TipoDoCarro</td>
                     <td><a class="btn btn-danger" type="submit" href="/Veiculos/Excluir?Handle=@veiculos.Handle">Excluir</a></td>
                     <td><a class=" = btn btn-primary" type="submit" href="/Veiculos/DefinirCarroPadrao?Handle=@veiculos.Handle">Definir como padrão</a></td>
@@ -44,7 +46,9 @@
 
 
     <button id="AdicionarCarro" name="Adicionar-Carro" class="btn btn-success" onclick="window.location.href = '/Veiculos/CadastrarVeiculo';">Cadastrar Veiculo</button>
+    <script src="~/Scripts/BuscaAJAXItem.js"></script>
 </body>
+
 </html>
 
 

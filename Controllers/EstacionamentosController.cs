@@ -38,5 +38,15 @@ namespace SistemaGestaoEstacionamentos.Controllers
         {
             return View();
         }
+
+        public ActionResult DefinirCarenciaDoEstacionamento(int estacionamentoID, int carencia)
+        {
+            EstacionamentosDAO dao = new EstacionamentosDAO();
+            Estacionamento estacionamento = dao.Recuperar(estacionamentoID);
+            estacionamento.DefinirCarencia(carencia);
+            dao.Editar(estacionamento);
+            return View();
+        }
+
     }
 }

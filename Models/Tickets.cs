@@ -26,16 +26,19 @@ namespace SistemaDeEstacionamentos.Model
         public Tickets()
         {
             DataHoraEntrada = DateTime.Now;
+            DataHoraValidacao = DateTime.Now.AddMinutes(15);
+            //DECOY - Alterar assim que passagem de carencia estiver funcionando
 
         }
 
         public string validaTicket()
         {
             TabelaDePreco tabelaDePreco = new TabelaDePreco();
-            if (DataHoraValidacao.Subtract(Validade) < TempoDecorrido)
+            if (DataHoraEntrada.Subtract(DataHoraValidacao) < TempoDecorrido)
             {
                 DataHoraValidacao = DateTime.Now;
                 TempoDecorrido = DataHoraValidacao.Subtract(DataHoraEntrada);
+                Validade = DateTime.Now.Add(tabelaDePreco.ValidoPor(this));
                 Valor = tabelaDePreco.calculaPrecoTicket(TempoDecorrido);
                 return ("Ticket válido até " + tabelaDePreco.ValidoPor(this));
             }

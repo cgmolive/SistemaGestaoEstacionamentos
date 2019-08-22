@@ -36,8 +36,10 @@ namespace SistemaGestaoEstacionamentos.Controllers
 
         public ActionResult ValidarTicket(Tickets ticket)
         {
+            Usuarios user = (Usuarios)Session["usuarioLogado"];
             TicketDAO dao = new TicketDAO();
             ticket.validaTicket();
+            ticket.VeiculoId = user.carroPadraoId;
             dao.Valida(ticket);
             return View();
         }

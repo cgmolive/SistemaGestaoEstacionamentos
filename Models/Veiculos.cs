@@ -15,6 +15,7 @@ namespace SistemaDeEstacionamentos.Model
 
         public long Handle { get; set; }
 
+        //[Required]
         public string Placa { get; set; }
         public string TipoDoCarro { get; set; }
 
@@ -26,9 +27,14 @@ namespace SistemaDeEstacionamentos.Model
         public IList<Tickets> tickets { get; set; }
 
 
+        public Veiculos()
+        {
+
+        }
 
         public Veiculos(string placa, string tipoDoCarro)
         { 
+
             Placa = placa;
             TipoDoCarro = tipoDoCarro;
             Ativo = true;

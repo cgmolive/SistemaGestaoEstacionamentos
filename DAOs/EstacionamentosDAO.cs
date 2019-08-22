@@ -18,11 +18,11 @@ namespace SistemaDeEstacionamentos.Controller
             }
         }
 
-        public void Recuperar()
+        public Estacionamento Recuperar(int Handle)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                IList<Estacionamento> estacionamentos = repo.Estacionamentos.ToList();
+               return repo.Estacionamentos.FirstOrDefault(x => x.Handle == Handle); ;
             }
         }
 
@@ -40,14 +40,11 @@ namespace SistemaDeEstacionamentos.Controller
             }
         }
 
-        public void Editar(int Handler)
+        public void Editar(Estacionamento estacionamento)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                var EstacionamentoParaAtualizar = repo.Estacionamentos.Find(Handler);
-                //Definir campo a ser atualizado
-                repo.Estacionamentos.Update(EstacionamentoParaAtualizar);
-
+                repo.Estacionamentos.Update(estacionamento);
                 repo.SaveChanges();
             }
         }

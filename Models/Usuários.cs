@@ -56,6 +56,10 @@ namespace SistemaDeEstacionamentos
             Estado = estado;
 
         }
+        public Usuarios()
+        {
+
+        }
 
 
         public void CadastrarCarro(string Placa, string tipoDoCarro)
