@@ -22,9 +22,12 @@ namespace SistemaDeEstacionamentos
         public string senha { get; set; }
         public ICollection<Veiculos> Carros { get; set; }
         public long carroPadraoId { get; set; }
-        
+        public string Logradouro { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
 
-        public Usuarios (string nome, int cep, string cpf, string nomeDeUsuario, string senha)
+
+        public Usuarios (string nome, int cep, string cpf, string nomeDeUsuario, string senha, string logradouro, string cidade, string estado)
         {
             CPF validadorCPF = new CPF();
             Nome validadorNome = new Nome();
@@ -48,6 +51,9 @@ namespace SistemaDeEstacionamentos
             {
                 Nome = nome;
             }
+            Logradouro = logradouro;
+            Cidade = cidade;
+            Estado = estado;
 
         }
 

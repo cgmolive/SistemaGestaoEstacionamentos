@@ -32,7 +32,7 @@ namespace SistemaDeEstacionamentos.Model
         public string validaTicket()
         {
             TabelaDePreco tabelaDePreco = new TabelaDePreco();
-            if (DataHoraValidacao == null)
+            if (DataHoraValidacao.Subtract(Validade) < TempoDecorrido)
             {
                 DataHoraValidacao = DateTime.Now;
                 TempoDecorrido = DataHoraValidacao.Subtract(DataHoraEntrada);

@@ -36,7 +36,9 @@ namespace SistemaGestaoEstacionamentos.Controllers
 
         public ActionResult ValidarTicket(Tickets ticket)
         {
+            TicketDAO dao = new TicketDAO();
             ticket.validaTicket();
+            dao.Valida(ticket);
             return View();
         }
 

@@ -23,10 +23,10 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             return View();
         }
 
-        public ActionResult Adicionar(string nome, int CEP, string cpf, string nomeDeUsuario, string senha)
+        public ActionResult Adicionar(string nome, int CEP, string cpf, string nomeDeUsuario, string senha, string logradouro, string cidade, string estado)
         {
 
-            Usuarios usuario = new Usuarios(nome, CEP, cpf, nomeDeUsuario, senha);
+            Usuarios usuario = new Usuarios(nome, CEP, cpf, nomeDeUsuario, senha,logradouro, cidade, estado);
             UsuariosDAO dao = new UsuariosDAO();
             dao.Gravar(usuario);
 
@@ -46,9 +46,6 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             
             return View();
         }
-
-  
-
     }
 
 }

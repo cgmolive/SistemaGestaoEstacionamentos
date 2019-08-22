@@ -10,27 +10,74 @@
     @using (Html.BeginForm("Adicionar", "Usuarios", FormMethod.Post))
     {
 
-        <form action="/Usuarios/Adicionar">
+        <form class="form-group">
             @Html.AntiForgeryToken()
 
+            <div class="form-group row">
+                <div class="col">
+                    <label for="nome">Nome:</label>
+                    <input class="form-control" id="nome" name="nome" />
+                </div>
+                <div class="col">
+                    <label for="nomeDeUsuario">Nome de Usuario:</label>
+                    <input class="form-control" id="nomeDeUsuario" name="nomeDeUsuario" />
+                </div>
+                <div class="col">
+                    <label for="senha">Senha:</label>
+                    <input class="form-control" id="senha" type="password" name="senha" />
+                </div>
+                <div class="col">
+                    <label for="cpf">CPF:</label>
+                    <input class="form-control" id="cpf" name="cpf" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="cep">CEP</label>
+                    <input class="form-control" id="cep" name="cep" placeholder="Apenas números" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
+                </div>
+                <div class="col-md-2">
+                    <label for="button" style="opacity:0;">CEP</label><br />
+                    <button id="button" type="button" class="btn btn-primary button" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                </div>
+                <div class="col">
+                    <label for="estado">Estado</label>
+                    <input class="form-control" id="estado" name="estado" readonly="readonly" required="" type="text">
+                </div>
+                <div class="col">
+                    <label for="cidade">Cidade</label>
+                    <input class="form-control" id="cidade" name="cidade" readonly="readonly" required="" type="text">
+                </div>
+            </div>
 
-            <label for="nome">Nome:</label>
-            <input id="nome" name="nome" />
+            <div class="form-group row">
+                <div class="col">
+                    <label for="rua">Rua</label>
+                    <input class="form-control" id="rua" name="rua" placeholder="" required="" type="text">
+                </div>
+                <div class="col">
+                    <label for="bairro">Bairro</label>
+                    <input class="form-control" id="bairro" name="bairro" placeholder="" required="" type="text">
+                </div>
+            </div>
 
-            <label for="nomeDeUsuario">NomeDeUsuario:</label>
-            <input id="nomeDeUsuario" name="nomeDeUsuario" />
 
-            <label for="senha">senha:</label>
-            <input id="senha"type="password" name="senha" />
+            <div class=" form-group row">
+                <div class="col-md-10">
+                    <label for="button" style="opacity:0;"></label><br />
 
-            <label for="cpf">CPF:</label>
-            <input id="cpf" name="cpf" />
+                </div>
 
-            <label for="CEP">CEP:</label>
-            <input id="CEP" name="CEP" />
+                <div class="col-md-1">
+                    <a href="#" class="col btn btn-danger">Voltar</a>
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" class="btn btn-primary" value="Cadastrar" />
+                </div>
+            </div>
 
-            <input type="submit" class="btn btn-primary" value="Cadastrar" />
         </form>
+        <script src="~/Scripts/BuscarEndereco.js"></script>
     }
 </body>
 </html>

@@ -46,25 +46,33 @@ namespace SistemaGestaoEstacionamentos.Controllers
        {
             VeiculosDAO dao = new VeiculosDAO();
             Veiculos veiculo = dao.BuscaPorId(Handle);
-            return View(veiculo);
-        }
-
-        [HttpPost]
-        public ActionResult Excluir(Veiculos veiculo)
-        {
-            VeiculosDAO dao = new VeiculosDAO();
             dao.Excluir(veiculo);
-            return RedirectToAction("Index", "Veiculos");
-           
-        }
-    
-
-        public ActionResult DefinirCarroAtivo()
-        {
-            Usuarios user = (Usuarios)Session["usuarioLogado"];
-            //user.carroPadraoId = IdDoCarroClicado;
             return View();
         }
+
+
+        //[HttpGet]
+        //public ActionResult DefinirCarroPadrao(long Handle)
+        //{
+        //    VeiculosDAO dao = new VeiculosDAO();
+        //    var veiculo = dao.BuscaPorId(Handle);
+        //    return View("DefinirCarroPadrao",veiculo);
+        //}
+
+        [HttpGet]
+        public ActionResult DefinirCarroPadrao (long Handle)
+        {
+            
+            Usuarios user = (Usuarios)Session["usuarioLogado"];
+            UsuariosDAO dao = new UsuariosDAO();
+            VeiculosDAO Vdao = new VeiculosDAO();
+            var veiculo = Vdao.BuscaPorId(Handle);
+            user.carroPadraoId = veiculo.Handle;
+            
+            dao.Editar(user);
+            return View();
+        }
+
 
     }
 }

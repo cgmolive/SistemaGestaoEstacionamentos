@@ -86,7 +86,13 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
                     b.Property<int>("Cep");
 
+                    b.Property<string>("Cidade");
+
                     b.Property<string>("Cpf");
+
+                    b.Property<string>("Estado");
+
+                    b.Property<string>("Logradouro");
 
                     b.Property<string>("Nome");
 

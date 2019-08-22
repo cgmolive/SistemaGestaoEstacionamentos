@@ -31,8 +31,9 @@
                     <td>@veiculos.Handle</td>
                     <td>@veiculos.Placa</td>
                     <td>@veiculos.TipoDoCarro</td>
-                    <td><a class="btn btn-danger" href="/Veiculos/Excluir/@veiculos.Handle">Excluir</a></td>    
-                    @Html.Action("Excluir","Veiculos", new { Handle = veiculos.Handle})
+                    <td><a class="btn btn-danger" type="submit" href="/Veiculos/Excluir?Handle=@veiculos.Handle">Excluir</a></td>
+                    <td><a class=" = btn btn-primary" type="submit" href="/Veiculos/DefinirCarroPadrao?Handle=@veiculos.Handle">Definir como padrão</a></td>
+
 
 
                 </tr>
@@ -42,7 +43,7 @@
     </table>
 
 
-    <button id=" =AdicionarCarro" name=" Adicionar-Carro" class=" btn btn-success" onclick="window.location.href = '/Veiculos/CadastrarVeiculo';">Cadastrar Veiculo</button>
+    <button id="AdicionarCarro" name="Adicionar-Carro" class="btn btn-success" onclick="window.location.href = '/Veiculos/CadastrarVeiculo';">Cadastrar Veiculo</button>
 </body>
 </html>
 

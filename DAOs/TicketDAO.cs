@@ -27,7 +27,11 @@ namespace SistemaDeEstacionamentos.Controller
         }
         public void Valida(Tickets ticket)
         {
-            
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+                repo.Tickets.Update(ticket);
+                repo.SaveChanges();
+            }
         }
     }
 }

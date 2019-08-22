@@ -41,13 +41,12 @@ namespace SistemaDeEstacionamentos
             }
         } 
 
-        public  void Editar(int Handle)
+        public  void Editar(Usuarios usuario)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                var usuarioParaAtualizar = repo.Usuarios.Find(Handle);
-                //Definir campo a ser atualizado
-                repo.Usuarios.Update(usuarioParaAtualizar);
+   
+                repo.Usuarios.Update(usuario);
 
                 repo.SaveChanges();
             }

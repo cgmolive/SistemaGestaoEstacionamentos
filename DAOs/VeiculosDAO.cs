@@ -25,6 +25,7 @@ namespace SistemaGestaoEstacionamentos.DAOs
             using (var repo = new SistemaEstacionamentosContext())
             {
                 veiculo.Ativo = false;
+                repo.Veiculos.Update(veiculo);
                 repo.SaveChanges();           
             }
         }
@@ -37,17 +38,15 @@ namespace SistemaGestaoEstacionamentos.DAOs
             }
         }
 
-        public void Editar(int Handle)
+        public void Editar(Veiculos veiculoParaAtualizar)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                var veiculoParaAtualizar = BuscaPorId(Handle);
                 repo.Veiculos.Update(veiculoParaAtualizar);
-
                 repo.SaveChanges();
             }
         }
-        public Veiculos BuscaPorId(double Handle)
+        public Veiculos BuscaPorId(long Handle)
         {
             using (var repo = new SistemaEstacionamentosContext())
                 return repo.Veiculos.FirstOrDefault(x => x.Handle == Handle);

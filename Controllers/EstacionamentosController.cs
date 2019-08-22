@@ -34,5 +34,9 @@ namespace SistemaGestaoEstacionamentos.Controllers
             return View();
         }
 
+        public ActionResult ListarVagas()
+        {
+            return View();
+        }
     }
 }

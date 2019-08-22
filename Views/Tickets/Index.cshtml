@@ -20,20 +20,23 @@
                 <th>HorarioDeEntrada</th>
                 <th>HorarioDeSaida</th>
                 <th>Valor</th>
+                <th></th>
             </tr>
         </thead>
 
         <tbody>
             @foreach (var tickets in ViewBag.Tickets)
             {
-                <tr>
-                    <td>@tickets.Handle</td>
-                    <td>@tickets.DataHoraEntrada</td>
-                    <td>@tickets.Validade</td>
-                    <td>@tickets.Valor</td>
+            <tr>
+                <td>@tickets.Handle</td>
+                <td>@tickets.DataHoraEntrada</td>
+                <td>@tickets.Validade</td>
+                <td>@tickets.Valor</td>
+                <td>
+                <td><a class="btn btn-primary" href="/Tickets/ValidarTicket?Handle=@tickets.Handle">Validar</a></td>   
 
 
-                </tr>
+            </tr>
             }
         </tbody>
 

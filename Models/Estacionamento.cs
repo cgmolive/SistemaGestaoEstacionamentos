@@ -16,7 +16,14 @@ namespace SistemaDeEstacionamentos
         public int Handle { get; set; }
         public string Nome { get; set; }
         public List<Vagas> VagasDoEstacionamento { get; set; }
-     
+        public int Carencia { get; set; }
+
+
+        public void DefinirCarencia(int carencia)
+        {
+            Carencia = carencia;
+        }
+
 
         public List<string> exibirVagasDisponiveis()
         { 
