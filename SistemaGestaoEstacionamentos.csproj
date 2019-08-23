@@ -207,11 +207,13 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VagasController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
     <Compile Include="DAOs\EstacionamentosDAO.cs" />
     <Compile Include="DAOs\SistemaEstacionamentosContext.cs" />
     <Compile Include="DAOs\TicketDAO.cs" />
     <Compile Include="DAOs\UsuariosDAO.cs" />
+    <Compile Include="DAOs\VagasDAO.cs" />
     <Compile Include="DAOs\VeiculosDAO.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -336,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Vagas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

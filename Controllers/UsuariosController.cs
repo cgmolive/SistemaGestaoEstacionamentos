@@ -23,14 +23,34 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             return View();
         }
 
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            Exception exception = filterContext.Exception;
+            //Logging the Exception
+            filterContext.ExceptionHandled = true;
+
+
+            var Result = this.View("Error", new HandleErrorInfo(exception,
+                filterContext.RouteData.Values["controller"].ToString(),
+                filterContext.RouteData.Values["action"].ToString()));
+
+            filterContext.Result = Result;
+
+        }
+
 
         [HttpPost]
         public ActionResult Adicionar(Usuarios usuario)
         {
-            UsuariosDAO dao = new UsuariosDAO();
-            dao.Gravar(usuario);
-            return RedirectToAction("Index", "Home");
+
+                UsuariosDAO dao = new UsuariosDAO();
+                dao.Gravar(usuario);
+                return RedirectToAction("Index", "Home");
         }
+
+
+
+        
 
         public ActionResult Form()
         {

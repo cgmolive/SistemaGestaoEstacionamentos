@@ -14,12 +14,29 @@ namespace SistemaGestaoEstacionamentos.Controllers
     public class TicketsController : Controller
     {
         // GET: Tickets
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            Exception exception = filterContext.Exception;
+            //Logging the Exception
+            filterContext.ExceptionHandled = true;
+
+
+            var Result = this.View("Error", new HandleErrorInfo(exception,
+                filterContext.RouteData.Values["controller"].ToString(),
+                filterContext.RouteData.Values["action"].ToString()));
+
+            filterContext.Result = Result;
+
+        }
         public ActionResult Index()
         {
-            TicketDAO dao = new TicketDAO();
-            IList<Tickets> tickets = dao.Lista();
-            ViewBag.Tickets = tickets;
-            return View();
+
+                TicketDAO dao = new TicketDAO();
+                IList<Tickets> tickets = dao.Lista();
+                ViewBag.Tickets = tickets;
+                return View();
+                 
         }
 
 
@@ -44,10 +61,7 @@ namespace SistemaGestaoEstacionamentos.Controllers
             return View();
         }
 
-        public ActionResult CadastrarCarro()
-        {
-            return View();
-        }
+
     }
 }
 

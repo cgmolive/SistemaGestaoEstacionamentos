@@ -13,6 +13,8 @@ namespace SistemaDeEstacionamentos
 
         public DbSet<Veiculos> Veiculos { get; set; }
 
+        public DbSet<Vagas> Vagas { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = localdb; Trusted_Connection = true; ");
@@ -45,6 +47,10 @@ namespace SistemaDeEstacionamentos
             modelBuilder.Entity<Tickets>()
                .HasOne(c => c.Veiculo)
                .WithMany(e => e.tickets);
+
+            modelBuilder.Entity<Vagas>()
+                .HasKey(c => c.Handle);
         }
+
     }
 }

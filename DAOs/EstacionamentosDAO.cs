@@ -13,8 +13,15 @@ namespace SistemaDeEstacionamentos.Controller
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Estacionamentos.Add(estacionamento);
-                repo.SaveChanges();
+                if(estacionamento.Nome != null)
+                {
+                    repo.Estacionamentos.Add(estacionamento);
+                    repo.SaveChanges();
+                }
+                else
+                {
+                    throw new CampoNuloException();
+                }
             }
         }
 

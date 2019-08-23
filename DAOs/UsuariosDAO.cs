@@ -1,4 +1,5 @@
 ﻿using SistemaDeEstacionamentos.Controller;
+using SistemaDeEstacionamentos.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,18 @@ namespace SistemaDeEstacionamentos
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Usuarios.Add(usuario);
-                repo.SaveChanges();
+                CPF validadorCPF = new CPF();
+                Nome validadorNome = new Nome();
+                if (validadorCPF.IsCpf(usuario.Cpf) == true && validadorNome.validaNome(usuario.Nome)==true)
+                {
+                    repo.Usuarios.Add(usuario);
+                    repo.SaveChanges();
+                }
+                else
+                {
+                    throw new CampoInvalidoException();
+                }
+
             }
         }
 

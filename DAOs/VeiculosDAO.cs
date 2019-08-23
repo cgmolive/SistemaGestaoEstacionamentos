@@ -15,12 +15,15 @@ namespace SistemaGestaoEstacionamentos.DAOs
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                if(veiculo != null)
+                if(veiculo.Placa != null)
                 {
                     repo.Veiculos.Add(veiculo);
                     repo.SaveChanges();
                 }
-
+                else
+                {
+                    throw new CampoNuloException();
+                }
             }
         }
 

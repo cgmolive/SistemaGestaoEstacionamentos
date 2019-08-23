@@ -15,11 +15,16 @@ namespace SistemaDeEstacionamentos
         public int Handle { get; set; }
         public string TipoDaVaga { get; set; }
         public string LocalDaVaga { get; set; }
+        public int EstacionamentoId { get; set; }
 
         public Vagas(string TipoDaVaga, string LocalDaVaga)
         {
             this.TipoDaVaga = TipoDaVaga;
             this.LocalDaVaga = LocalDaVaga;
+        }
+        public Vagas()
+        {
+
         }
     }
 }
