@@ -12,6 +12,7 @@ namespace SistemaGestaoEstacionamentos.Controllers
     public class VagasController : Controller
     {
         // GET: Vagas
+
         public ActionResult Index()
         {
             return View();
@@ -31,6 +32,14 @@ namespace SistemaGestaoEstacionamentos.Controllers
             VagasDAO dao = new VagasDAO();
             var vaga = dao.Buscar(vagaId);
             dao.Editar(vaga);
+            return View();
+        }
+
+        public ActionResult ExcluirVaga(int vagaId)
+        {
+            VagasDAO dao = new VagasDAO();
+            var vaga = dao.Buscar(vagaId);
+            dao.Excluir(vaga);
             return View();
         }
     }

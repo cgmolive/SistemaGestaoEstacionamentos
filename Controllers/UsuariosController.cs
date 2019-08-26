@@ -10,23 +10,14 @@ using SistemaGestaoEstacionamentos.Filtros;
 
 namespace SistemaGestaoEstacionamentosMVC.Controllers
 {
+
     public class UsuariosController : Controller
     {
 
-        [AutorizacaoFilter]
-        public ActionResult Index()
-        {
-        
-            UsuariosDAO dao = new UsuariosDAO();
-            IList<Usuarios> usuarios = dao.Lista();
-            ViewBag.Usuarios = usuarios;
-            return View();
-        }
 
         protected override void OnException(ExceptionContext filterContext)
         {
             Exception exception = filterContext.Exception;
-            //Logging the Exception
             filterContext.ExceptionHandled = true;
 
 
@@ -36,6 +27,17 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
 
             filterContext.Result = Result;
 
+        }
+
+
+        [AutorizacaoAdmin]
+        public ActionResult Index()
+        {
+        
+            UsuariosDAO dao = new UsuariosDAO();
+            IList<Usuarios> usuarios = dao.Lista();
+            ViewBag.Usuarios = usuarios;
+            return View();
         }
 
 
@@ -58,11 +60,27 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             return View(usuario);
         }
 
-
+        [AutorizacaoAdmin]
         public ActionResult Delete(int Handle)
         {
             
             return View();
+        }
+
+        [AutorizacaoAdmin]
+        [HttpGet]
+        public ActionResult EditarLoginAdmin()
+        {
+            Usuarios administrador = (Usuarios)Session["AdminLogado"];
+            return View(administrador);
+        }
+        [AutorizacaoAdmin]
+        [HttpPost]
+        public ActionResult EditarLoginAdmin(Usuarios administrador)
+        {
+            UsuariosDAO dao = new UsuariosDAO();
+            dao.Editar(administrador);
+            return RedirectToAction("MenuDoAdmin", "Home");
         }
     }
 

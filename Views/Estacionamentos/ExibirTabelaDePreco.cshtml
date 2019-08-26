@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SistemaDeEstacionamentos.Model.TabelaDePreco>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConsultarTabelaDePreco</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Id Estacionamento
+                    </th>
+                    <th>
+                        Valor de 4 horas
+                    </th>
+                    <th>
+                        Valor da hora adicional
+                    </th>
+                    <th>
+                        Diária
+                    </th>
+                    <th>
+                        Carencia
+                    </th>
+                    <th>
+                        Editar
+                    </th>
+                </tr>
+            </thead>
+ 
+                <td>@ViewBag.Tabelas.EstacionamentoId</td>
+                <td>@ViewBag.Tabelas.AteQuatroHoras</td>
+                <td>@ViewBag.Tabelas.AdicionalPorHora</td>
+                <td>@ViewBag.Tabelas.ValorDiaria</td>
+                <td>@ViewBag.Tabelas.Carencia</td>
+                <button id=" =Editar" name=" Editar" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/Index';">Voltar</button>
+        </table>
+    </div>
+</body>
+</html>

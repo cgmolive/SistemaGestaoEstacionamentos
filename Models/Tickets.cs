@@ -1,5 +1,4 @@
-﻿using SistemaGestaoEstacionamentos.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,32 +20,30 @@ namespace SistemaDeEstacionamentos.Model
         public TimeSpan TempoDecorrido { get; set; }
         public Veiculos Veiculo { get; set; }
         public long VeiculoId { get; set; }
+        public bool Validado { get; set; }
 
 
         public Tickets()
         {
             DataHoraEntrada = DateTime.Now;
-            DataHoraValidacao = DateTime.Now.AddMinutes(15);
+            Validado = false;
             //DECOY - Alterar assim que passagem de carencia estiver funcionando
 
         }
 
-        public string validaTicket()
+        public void ValidaTicket(Tickets ticket)
         {
+            DataHoraValidacao = DateTime.Now;
+            TempoDecorrido = DataHoraValidacao.Subtract(DataHoraEntrada);
             TabelaDePreco tabelaDePreco = new TabelaDePreco();
-            if (DataHoraEntrada.Subtract(DataHoraValidacao) < TempoDecorrido)
+            if (DataHoraValidacao.Subtract(DataHoraEntrada) < TempoDecorrido)
             {
-                DataHoraValidacao = DateTime.Now;
-                TempoDecorrido = DataHoraValidacao.Subtract(DataHoraEntrada);
-                Validade = DateTime.Now.Add(tabelaDePreco.ValidoPor(this));
+                Validade = DateTime.Now.Add(tabelaDePreco.ValidoPor(ticket));
                 Valor = tabelaDePreco.calculaPrecoTicket(TempoDecorrido);
-                return ("Ticket válido até " + tabelaDePreco.ValidoPor(this));
-            }
-            else
-            {
-                return ("Ticket já validado.");
-            }
+                Validado = true;
 
+            }
+       
         }
     }
 }

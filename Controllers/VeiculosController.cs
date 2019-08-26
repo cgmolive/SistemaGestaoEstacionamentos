@@ -44,9 +44,8 @@ namespace SistemaGestaoEstacionamentos.Controllers
         public ActionResult Editar(int Handle)
         {
             VeiculosDAO dao = new VeiculosDAO();
-            //Veiculos paraLocalizar = dao.Editar(Handle);
-            //Mover para ViewBag
-            //Retornar pra  View
+            Veiculos paraLocalizar = dao.BuscaPorId(Handle);
+            dao.Editar(paraLocalizar);
             return View();
         }
 

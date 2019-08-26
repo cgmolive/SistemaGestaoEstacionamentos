@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaDeEstacionamentos.Model;
+
 using System;
 
 namespace SistemaDeEstacionamentos
@@ -14,6 +15,8 @@ namespace SistemaDeEstacionamentos
         public DbSet<Veiculos> Veiculos { get; set; }
 
         public DbSet<Vagas> Vagas { get; set; }
+
+        public DbSet<TabelaDePreco> TabelaDePreco { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,6 +53,13 @@ namespace SistemaDeEstacionamentos
 
             modelBuilder.Entity<Vagas>()
                 .HasKey(c => c.Handle);
+
+            modelBuilder.Entity<TabelaDePreco>()
+                .HasKey(c => c.Handle);
+
+            modelBuilder.Entity<TabelaDePreco>()
+                .HasOne(c => c.Estacionamento)
+                .WithOne(e => e.tabelaDePreco);
         }
 
     }

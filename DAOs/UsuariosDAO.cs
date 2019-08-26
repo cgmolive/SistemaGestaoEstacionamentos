@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace SistemaDeEstacionamentos
 {
-   public class UsuariosDAO
+    public class UsuariosDAO
     {
- 
+
         public void Gravar(Usuarios usuario)
         {
-           
+
 
             using (var repo = new SistemaEstacionamentosContext())
             {
                 CPF validadorCPF = new CPF();
                 Nome validadorNome = new Nome();
-                if (validadorCPF.IsCpf(usuario.Cpf) == true && validadorNome.validaNome(usuario.Nome)==true)
+                if (validadorCPF.IsCpf(usuario.Cpf) == true && validadorNome.validaNome(usuario.Nome) == true)
                 {
                     repo.Usuarios.Add(usuario);
                     repo.SaveChanges();
@@ -32,7 +32,6 @@ namespace SistemaDeEstacionamentos
             }
         }
 
-
         public void Excluir(int Handle)
         {
             using (var repo = new SistemaEstacionamentosContext())
@@ -40,7 +39,7 @@ namespace SistemaDeEstacionamentos
                 var usuarioParaRemover = repo.Usuarios.Find(Handle);
                 repo.Usuarios.Remove(usuarioParaRemover);
                 repo.SaveChanges();
-                
+
             }
         }
 
@@ -50,13 +49,13 @@ namespace SistemaDeEstacionamentos
             {
                 return repo.Usuarios.ToList();
             }
-        } 
+        }
 
-        public  void Editar(Usuarios usuario)
+        public void Editar(Usuarios usuario)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-   
+
                 repo.Usuarios.Update(usuario);
 
                 repo.SaveChanges();
@@ -64,14 +63,25 @@ namespace SistemaDeEstacionamentos
         }
 
 
-    public Usuarios BuscaUsuario(string login, string senha)
+        public Usuarios BuscaUsuario(string login, string senha)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
                 return repo.Usuarios.FirstOrDefault(x => x.nomeDeUsuario == login && x.senha == senha);
             }
-            
+
+        }
+
+        public Usuarios BuscarAdministrador(string login, string senha)
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+                return repo.Usuarios.FirstOrDefault(x => x.nomeDeUsuario == login && x.senha == senha && x.Adm == true);
+            }
+
         }
 
     }
 }
+
+ 

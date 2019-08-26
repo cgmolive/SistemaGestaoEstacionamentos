@@ -4,19 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoEstacionamentos.Model
+namespace SistemaDeEstacionamentos.Model
 {
     public class TabelaDePreco
     {
+        public int Handle { get; set; }
         public float AteQuatroHoras { get; set; }
         public float AdicionalPorHora { get; set; }
         public float ValorDiaria { get; set; }
         public TimeSpan Carencia { get; set; }
-
+        public int EstacionamentoId { get; set; }
+        public Estacionamento Estacionamento { get; set; }
 
         public TabelaDePreco()
         {
-
+            Carencia = TimeSpan.FromMinutes(15);
         }
         public TabelaDePreco(float AteQuatroHoras, float AdicionalPorHora, float ValorDiaria)
         {
@@ -27,15 +29,13 @@ namespace SistemaGestaoEstacionamentos.Model
 
         public float calculaPrecoTicket(TimeSpan TempoDecorrido)
         {
-            float valorFinal;
-       
+            float valorFinal = 0;
+
 
             //Decisão do valor pago
             //Por padrão, vou assumir que a diária custa mais que 8 horas, e definir como limite.
-            if (TempoDecorrido.Minutes > 15)
+            if (TempoDecorrido > Carencia)
             {
-
-
                 if (TempoDecorrido.Hours <= 4)
                 {
                     valorFinal = AteQuatroHoras;
@@ -48,18 +48,18 @@ namespace SistemaGestaoEstacionamentos.Model
                 {
                     valorFinal = AteQuatroHoras + ((TempoDecorrido.Hours - 4) * AdicionalPorHora);
                 }
-                return valorFinal;
-
             }
-            else
-            {
-                return 0;
-            }
+            return valorFinal;
         }
         public TimeSpan ValidoPor(Tickets ticket)
         {
-            TimeSpan TempoValidade = DateTime.Now.AddMinutes(15).Subtract(ticket.DataHoraEntrada);
+            TimeSpan TempoValidade = DateTime.Now.AddMinutes(Carencia.Minutes).Subtract(ticket.DataHoraEntrada);
             return TempoValidade;
+        }
+            
+        public void DefinirCarencia(int tempoCarencia)
+        {
+            Carencia = TimeSpan.FromMinutes(tempoCarencia);
         }
     }
 }

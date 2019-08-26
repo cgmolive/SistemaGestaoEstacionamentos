@@ -1,4 +1,5 @@
 ﻿using SistemaDeEstacionamentos.Model;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,12 +17,13 @@ namespace SistemaDeEstacionamentos
         public int Handle { get; set; }
         public string Nome { get; set; }
         public List<Vagas> VagasDoEstacionamento { get; set; }
-        public int Carencia { get; set; }
+        public TabelaDePreco tabelaDePreco { get; set; }
+ 
 
 
-        public void DefinirCarencia(int carencia)
+        public void MudarCarencia(int carencia)
         {
-            Carencia = carencia;
+            tabelaDePreco.DefinirCarencia(carencia);
         }
 
 
@@ -42,6 +44,11 @@ namespace SistemaDeEstacionamentos
             {
                 this.Nome = Nome;
             }
+        }
+
+        public Estacionamento()
+        {
+            tabelaDePreco = new TabelaDePreco();
         }
     }
 }

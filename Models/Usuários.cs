@@ -1,6 +1,7 @@
 ﻿using SistemaDeEstacionamentos.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace SistemaDeEstacionamentos
 {
     public class Usuarios
     {
-
+        public bool Adm { get; set; }
         public string Cpf { get; set; }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -58,7 +59,7 @@ namespace SistemaDeEstacionamentos
         }
         public Usuarios()
         {
-
+            Adm = false;
         }
 
 

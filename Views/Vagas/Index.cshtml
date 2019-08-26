@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SistemaDeEstacionamentos.Vagas>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+    <label>Buscar</label>
+    <input type="text" name="filtro" id="filtro" placeholder="Digite a placa do veículo">
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Handle</th>
+                <th>tipo da vaga</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var vagas in Model)
+            {
+                <tr class="carro">
+
+                    <td>@vagas.Handle</td>
+                    <td>@vagas.TipoDaVaga</td>
+                    <td></td>
+
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+
+    <button id="AdicionarVaga" name="Adicionar-Vaga" class="btn btn-success" onclick="window.location.href = '/Vagas/AdicionarVaga';">Adicionar Vaga</button>
+</body>
+
+</html>
+
+

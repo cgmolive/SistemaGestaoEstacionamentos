@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeEstacionamentos.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,17 @@ namespace SistemaDeEstacionamentos.Controller
             {
                 return repo.Estacionamentos.ToList();
             }
+        }
+
+        public TabelaDePreco BuscarTabelaDePreco(int handle)
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+
+                return repo.TabelaDePreco.FirstOrDefault(c => c.EstacionamentoId == handle);
+            }
+
+ 
         }
     }
 }

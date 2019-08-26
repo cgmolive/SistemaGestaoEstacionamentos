@@ -25,13 +25,35 @@ namespace SistemaGestaoEstacionamentos.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Carencia");
-
                     b.Property<string>("Nome");
 
                     b.HasKey("Handle");
 
                     b.ToTable("Estacionamentos");
+                });
+
+            modelBuilder.Entity("SistemaDeEstacionamentos.Model.TabelaDePreco", b =>
+                {
+                    b.Property<int>("Handle")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("AdicionalPorHora");
+
+                    b.Property<float>("AteQuatroHoras");
+
+                    b.Property<TimeSpan>("Carencia");
+
+                    b.Property<int>("EstacionamentoId");
+
+                    b.Property<float>("ValorDiaria");
+
+                    b.HasKey("Handle");
+
+                    b.HasIndex("EstacionamentoId")
+                        .IsUnique();
+
+                    b.ToTable("TabelaDePreco");
                 });
 
             modelBuilder.Entity("SistemaDeEstacionamentos.Model.Tickets", b =>
@@ -86,6 +108,8 @@ namespace SistemaGestaoEstacionamentos.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Adm");
+
                     b.Property<int>("Cep");
 
                     b.Property<string>("Cidade");
@@ -115,7 +139,7 @@ namespace SistemaGestaoEstacionamentos.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EstacionamentoHandle");
+                    b.Property<int>("EstacionamentoId");
 
                     b.Property<string>("LocalDaVaga");
 
@@ -123,9 +147,17 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
                     b.HasKey("Handle");
 
-                    b.HasIndex("EstacionamentoHandle");
+                    b.HasIndex("EstacionamentoId");
 
                     b.ToTable("Vagas");
+                });
+
+            modelBuilder.Entity("SistemaDeEstacionamentos.Model.TabelaDePreco", b =>
+                {
+                    b.HasOne("SistemaDeEstacionamentos.Estacionamento", "Estacionamento")
+                        .WithOne("tabelaDePreco")
+                        .HasForeignKey("SistemaDeEstacionamentos.Model.TabelaDePreco", "EstacionamentoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SistemaDeEstacionamentos.Model.Tickets", b =>
@@ -148,7 +180,8 @@ namespace SistemaGestaoEstacionamentos.Migrations
                 {
                     b.HasOne("SistemaDeEstacionamentos.Estacionamento")
                         .WithMany("VagasDoEstacionamento")
-                        .HasForeignKey("EstacionamentoHandle");
+                        .HasForeignKey("EstacionamentoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

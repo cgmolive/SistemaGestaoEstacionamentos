@@ -19,14 +19,23 @@ namespace SistemaGestaoEstacionamentos.Controllers
 
         public ActionResult AutenticaLogin(string login, string senha)
         {
-            UsuariosDAO loginDAO = new UsuariosDAO();
-            Usuarios usuario = loginDAO.BuscaUsuario(login, senha);
+            UsuariosDAO dao = new UsuariosDAO();
+            Usuarios usuario = dao.BuscaUsuario(login, senha);
+            Usuarios admin = dao.BuscarAdministrador(login, senha);
 
-            if (usuario != null)
+            
+
+            if (admin != null)
+            {
+                Session["AdminLogado"] = admin;
+                return RedirectToAction("MenuDoAdministrador", "Home");
+            }
+            else if (usuario != null)
             {
                 Session["UsuarioLogado"] = usuario;
                 return RedirectToAction("Index", "Home");
             }
+
             else
             {
                 ViewBag.error = "Login ou senha incorretos!";

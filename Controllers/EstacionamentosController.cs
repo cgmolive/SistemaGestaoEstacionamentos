@@ -34,16 +34,23 @@ namespace SistemaGestaoEstacionamentos.Controllers
 
         }
 
-
-        public ActionResult Adicionar(string nome)
+        [HttpGet]
+        public ActionResult Adicionar()
         {
 
-            Estacionamento estacionamento = new Estacionamento(nome);
+            Estacionamento estacionamento = new Estacionamento();
+
+            
+
+
+            return View(estacionamento);
+        }
+        [HttpPost]
+        public ActionResult Adicionar(Estacionamento estacionamento)
+        {
             EstacionamentosDAO dao = new EstacionamentosDAO();
             dao.Gravar(estacionamento);
-
-
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Editar(int handle)
@@ -60,10 +67,17 @@ namespace SistemaGestaoEstacionamentos.Controllers
         {
             EstacionamentosDAO dao = new EstacionamentosDAO();
             Estacionamento estacionamento = dao.Recuperar(estacionamentoID);
-            estacionamento.DefinirCarencia(carencia);
+            estacionamento.MudarCarencia(carencia);
             dao.Editar(estacionamento);
             return View();
         }
-
+        [HttpGet]
+        public ActionResult ExibirTabelaDePreco(Estacionamento estacionamento)
+        {
+            EstacionamentosDAO dao = new EstacionamentosDAO();
+            var tabela = dao.BuscarTabelaDePreco(estacionamento.Handle);
+            ViewBag.Tabelas = tabela;
+            return View();
+        }
     }
 }

@@ -215,21 +215,14 @@
     <Compile Include="DAOs\UsuariosDAO.cs" />
     <Compile Include="DAOs\VagasDAO.cs" />
     <Compile Include="DAOs\VeiculosDAO.cs" />
+    <Compile Include="Filtros\AutorizacaoAdminAttribute.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20190822184559_Nova.cs" />
-    <Compile Include="Migrations\20190822184559_Nova.designer.cs">
-      <DependentUpon>20190822184559_Nova.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190822192052_FixDateTime.cs" />
-    <Compile Include="Migrations\20190822192052_FixDateTime.designer.cs">
-      <DependentUpon>20190822192052_FixDateTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190822192320_Fix_2_DateTime.cs" />
-    <Compile Include="Migrations\20190822192320_Fix_2_DateTime.designer.cs">
-      <DependentUpon>20190822192320_Fix_2_DateTime.cs</DependentUpon>
+    <Compile Include="Migrations\20190826171156_Administrador.cs" />
+    <Compile Include="Migrations\20190826171156_Administrador.designer.cs">
+      <DependentUpon>20190826171156_Administrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SistemaEstacionamentosContextModelSnapshot.cs" />
     <Compile Include="Models\Estacionamento.cs" />
@@ -323,7 +316,6 @@
     <Content Include="Views\Estacionamentos\Adicionar.cshtml" />
     <Content Include="Views\Estacionamentos\Index.cshtml" />
     <Content Include="Views\Veiculos\Excluir.cshtml" />
-    <Content Include="Views\Veiculos\DefinirCarroAtivo.cshtml" />
     <Content Include="Views\Tickets\ValidarTicket.cshtml" />
     <Content Include="Views\Veiculos\DefinirCarroPadrao.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -335,10 +327,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Vagas\CadastrarVaga.cshtml" />
+    <Content Include="Views\Vagas\Index.cshtml" />
+    <Content Include="Views\Home\MenuDoAdministrador.cshtml" />
+    <Content Include="Views\Usuarios\EditarLoginAdmin.cshtml" />
+    <Content Include="Views\Shared\TicketJaValidado.cshtml" />
+    <Content Include="Views\Estacionamentos\ExibirTabelaDePreco.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Vagas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

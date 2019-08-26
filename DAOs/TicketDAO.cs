@@ -33,5 +33,13 @@ namespace SistemaDeEstacionamentos.Controller
                 repo.SaveChanges();
             }
         }
+        public Tickets BuscaTicketPorId(int Handle)
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+                return repo.Tickets.FirstOrDefault(x => x.Handle == Handle);
+            }
+
+        }
     }
 }

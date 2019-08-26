@@ -28,13 +28,22 @@ namespace SistemaGestaoEstacionamentos.DAOs
             }
         }
 
-        public void Editar(Estacionamento estacionamento)
+        public void Editar(Vagas vaga)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                repo.Estacionamentos.Update(estacionamento);
+                repo.Vagas.Update(vaga);
                 repo.SaveChanges();
             }
+        }
+
+        public Vagas Buscar(int vagaId)
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+                return repo.Vagas.FirstOrDefault(x => x.Handle == vagaId);
+            }
+            
         }
 
         public IList<Estacionamento> Lista()

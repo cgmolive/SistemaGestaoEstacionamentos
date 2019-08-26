@@ -12,5 +12,10 @@ namespace SistemaGestaoEstacionamentos.Controllers
         {
             return View();
         }
+
+        public ActionResult MenuDoAdministrador()
+        {
+            return View();
+        }
     }
 }
