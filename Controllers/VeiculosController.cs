@@ -20,7 +20,7 @@ namespace SistemaGestaoEstacionamentos.Controllers
             VeiculosDAO dao = new VeiculosDAO();
             Usuarios user = (Usuarios)Session["usuarioLogado"];
             IList<Veiculos> veiculos = dao.Lista();
-            var veiculosUsuario = dao.Lista().Where(x => x.MotoristaId == user.Handle);
+            var veiculosUsuario = dao.Lista().Where(x => x.MotoristaId == user.Handle && x.Ativo == true);
             return View(veiculosUsuario);
         }
 

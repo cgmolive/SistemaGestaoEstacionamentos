@@ -29,7 +29,7 @@ namespace SistemaDeEstacionamentos.Model
 
         public Veiculos()
         {
-
+            Ativo = true;
         }
 
         public Veiculos(string placa, string tipoDoCarro)

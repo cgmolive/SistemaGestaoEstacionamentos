@@ -46,11 +46,11 @@ namespace SistemaGestaoEstacionamentos.DAOs
             
         }
 
-        public IList<Estacionamento> Lista()
+        public IList<Vagas> Lista()
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                return repo.Estacionamentos.ToList();
+                return repo.Vagas.ToList();
             }
         }
     }

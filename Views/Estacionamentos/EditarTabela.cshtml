@@ -1,0 +1,53 @@
+﻿@model SistemaDeEstacionamentos.Model.TabelaDePreco
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+        @using (Html.BeginForm("EditarTabela", "Estacionamentos", FormMethod.Post))
+        {
+
+            <form class="form-group">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="ateQuatroHoras">Ate quatro horas:</label>
+                        <input class="form-control" id="ateQuatrohoras" name="ateQuatroHoras" />
+                    </div>
+                    <div class="col">
+                        <label for="adicionalPorHora">AdicionalPorHora</label>
+                        <input class="form-control" id="adicionalPorHora" name="adicionalPorHora" />
+                    </div>
+                    <div class="col">
+                        <label for="valorDiaria">Valor da diaria:</label>
+                        <input class="form-control" id="valorDiaria"  name="valorDiaria" />
+                    </div>
+                 </div>
+                    <div class="col-md-10">
+                        <label for="button" style="opacity:0;"></label><br />
+
+                    </div>
+
+                    <button id=" =EditarTabela" name="EditarTabela" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/EditarTabela';">Editar tabela</button>
+                    @Html.HiddenFor(m => m.EstacionamentoId)
+                    @Html.HiddenFor(m => m.Handle)
+            </form>
+            <script src="~/Scripts/BuscarEndereco.js"></script>
+        }
+    </body>
+</html>
+
+
+
+
+
+

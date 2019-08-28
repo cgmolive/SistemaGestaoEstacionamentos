@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using SistemaDeEstacionamentos;
 using SistemaDeEstacionamentos.Controller;
+using SistemaDeEstacionamentos.Model;
 
 namespace SistemaGestaoEstacionamentos.Controllers
 {
@@ -58,10 +59,6 @@ namespace SistemaGestaoEstacionamentos.Controllers
             return View();
         }
 
-        public ActionResult ListarVagas()
-        {
-            return View();
-        }
 
         public ActionResult DefinirCarenciaDoEstacionamento(int estacionamentoID, int carencia)
         {
@@ -78,6 +75,25 @@ namespace SistemaGestaoEstacionamentos.Controllers
             var tabela = dao.BuscarTabelaDePreco(estacionamento.Handle);
             ViewBag.Tabelas = tabela;
             return View();
+        }
+
+
+
+        [HttpGet]
+        public ActionResult EditarTabela(int Handle)
+        {
+            EstacionamentosDAO dao = new EstacionamentosDAO();
+            var tabela = dao.BuscarTabelaDePreco(Handle);
+            return View(tabela);
+        }
+        [HttpPost]
+        public ActionResult EditarTabela(TabelaDePreco tabela)
+        {
+            EstacionamentosDAO dao = new EstacionamentosDAO();
+            var estacionamento = dao.Recuperar(tabela.EstacionamentoId);
+            tabela.EstacionamentoId = estacionamento.Handle;
+            dao.EditarTabelaDePreco(tabela);
+            return RedirectToAction("Index");
         }
     }
 }

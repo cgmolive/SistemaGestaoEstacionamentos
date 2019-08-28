@@ -224,6 +224,10 @@
     <Compile Include="Migrations\20190826171156_Administrador.designer.cs">
       <DependentUpon>20190826171156_Administrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20190827143555_TabelaHotFix.cs" />
+    <Compile Include="Migrations\20190827143555_TabelaHotFix.designer.cs">
+      <DependentUpon>20190827143555_TabelaHotFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\SistemaEstacionamentosContextModelSnapshot.cs" />
     <Compile Include="Models\Estacionamento.cs" />
     <Compile Include="Models\Exceptions\CampoInvalidoException.cs" />
@@ -333,6 +337,8 @@
     <Content Include="Views\Usuarios\EditarLoginAdmin.cshtml" />
     <Content Include="Views\Shared\TicketJaValidado.cshtml" />
     <Content Include="Views\Estacionamentos\ExibirTabelaDePreco.cshtml" />
+    <Content Include="Views\Vagas\ExcluirVaga.cshtml" />
+    <Content Include="Views\Estacionamentos\EditarTabela.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

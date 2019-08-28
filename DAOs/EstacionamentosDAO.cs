@@ -75,5 +75,15 @@ namespace SistemaDeEstacionamentos.Controller
 
  
         }
+
+
+        public void EditarTabelaDePreco(TabelaDePreco tabela)
+        {
+            using(var repo = new SistemaEstacionamentosContext())
+            {
+                repo.TabelaDePreco.Update(tabela);
+                repo.SaveChanges();
+            }
+        }
     }
 }

@@ -28,18 +28,19 @@
                         Carencia
                     </th>
                     <th>
-                        Editar
+
                     </th>
                 </tr>
             </thead>
- 
-                <td>@ViewBag.Tabelas.EstacionamentoId</td>
-                <td>@ViewBag.Tabelas.AteQuatroHoras</td>
-                <td>@ViewBag.Tabelas.AdicionalPorHora</td>
-                <td>@ViewBag.Tabelas.ValorDiaria</td>
-                <td>@ViewBag.Tabelas.Carencia</td>
-                <button id=" =Editar" name=" Editar" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/Index';">Voltar</button>
+
+            <td>@ViewBag.Tabelas.EstacionamentoId</td>
+            <td>@ViewBag.Tabelas.AteQuatroHoras</td>
+            <td>@ViewBag.Tabelas.AdicionalPorHora</td>
+            <td>@ViewBag.Tabelas.ValorDiaria</td>
+            <td>@ViewBag.Tabelas.Carencia</td>
+            <td><button id=" =Editar" name=" Editar" class=" btn btn-primary" onclick="window.location.href = '/Estacionamentos/EditarTabela?Handle=@ViewBag.Tabelas.Handle';">Editar tabela</button></td>
         </table>
     </div>
+    <td><button id=" =Editar" name=" Voltar" class=" btn btn-primary" onclick="window.location.href = '/Estacionamentos/Index';">Voltar</button></td>
 </body>
 </html>

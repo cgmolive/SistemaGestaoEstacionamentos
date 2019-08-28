@@ -1,4 +1,4 @@
-﻿
+﻿@model SistemaDeEstacionamentos.Vagas
 <h2>Cadastro de vaga</h2>
 
 <!DOCTYPE html>
@@ -9,18 +9,18 @@
 <body>
 
 
-    <form action="/Vagas/CadastrarVagas" method="post">
+    <form action="/Vagas/CadastrarVaga" method="post">
         @Html.AntiForgeryToken()
 
 
-        <label for="nome">Nome:</label>
-        <input id="nome" name="nome" />
+        <label for="localDaVaga">Local Da Vaga:</label>
+        <input id="localDaVaga" name="localDeVaga" />
 
         <label for="TipoDaVaga">TipoDaVaga:</label>
         <input id="tipoDaVaga" name="tipoDaVaga" />
 
-
         <input type="submit" class="btn btn-primary" value="Cadastrar" />
+        @Html.HiddenFor(m => m.EstacionamentoId)
     </form>
 </body>
 </html>

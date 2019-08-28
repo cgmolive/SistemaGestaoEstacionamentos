@@ -70,6 +70,8 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
                     b.Property<DateTime>("Validade");
 
+                    b.Property<bool>("Validado");
+
                     b.Property<double>("Valor");
 
                     b.Property<long>("VeiculoId");

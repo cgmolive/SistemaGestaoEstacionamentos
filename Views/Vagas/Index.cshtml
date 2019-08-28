@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <!DOCTYPE html>
 
 <html>
@@ -13,36 +14,41 @@
 
 </head>
 <body>
-    <label>Buscar</label>
-    <input type="text" name="filtro" id="filtro" placeholder="Digite a placa do veículo">
-    <table class="table">
-
+    <table>
         <thead>
             <tr>
+                <th>Id do Estacionamento</th>
                 <th>Handle</th>
                 <th>tipo da vaga</th>
                 <th></th>
             </tr>
         </thead>
-
         <tbody>
-            @foreach (var vagas in Model)
+            @foreach (var vagas in ViewBag.Vagas)
             {
-                <tr class="carro">
 
+                <tr>
                     <td>@vagas.Handle</td>
                     <td>@vagas.TipoDaVaga</td>
-                    <td></td>
-
-
+                    <td>@vagas.EstacionamentoId</td>
+                    <td>
+                        <a id="RemoverVaga" name="Remover-Vaga" class="btn btn-danger" onclick="window.location.href =
+                        '/Vagas/ExcluirVaga?Handle=@vagas.Handle';">Excluir Vaga</a>
+                    </td>
                 </tr>
+
             }
         </tbody>
 
+
+
     </table>
+    <button id="AdicionarVaga" name="Adicionar-Vaga" class="btn btn-success" onclick="window.location.href =
+        '/Vagas/CadastrarVaga?Handle= @ViewBag.EstacionamentoId';">Cadastrar</button>
 
 
-    <button id="AdicionarVaga" name="Adicionar-Vaga" class="btn btn-success" onclick="window.location.href = '/Vagas/AdicionarVaga';">Adicionar Vaga</button>
+
+
 </body>
 
 </html>

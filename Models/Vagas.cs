@@ -24,7 +24,7 @@ namespace SistemaDeEstacionamentos
         }
         public Vagas()
         {
-
+           
         }
     }
 }

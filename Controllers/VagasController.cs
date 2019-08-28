@@ -13,16 +13,25 @@ namespace SistemaGestaoEstacionamentos.Controllers
     {
         // GET: Vagas
 
-        public ActionResult Index()
+        public ActionResult Index(int Handle)
         {
+            VagasDAO dao = new VagasDAO();
+            ViewBag.Vagas = dao.Lista().Where(x => x.EstacionamentoId == Handle);
+            ViewBag.EstacionamentoId = Handle;
             return View();
         }
-        public ActionResult CadastrarVaga(int estacionamentoId)
+        [HttpGet]
+        public ActionResult CadastrarVaga(int Handle)
+        {
+            Vagas vaga = new Vagas();
+            vaga.EstacionamentoId = Handle;
+            return View(vaga);
+        }
+        [HttpPost]
+        public ActionResult CadastrarVaga(Vagas vaga)
         {
             VagasDAO dao = new VagasDAO();
             EstacionamentosDAO Edao = new EstacionamentosDAO();
-            var estacionamento = Edao.Recuperar(estacionamentoId);
-            Vagas vaga = new Vagas();
             dao.Gravar(vaga);
             return View();
         }
@@ -35,10 +44,10 @@ namespace SistemaGestaoEstacionamentos.Controllers
             return View();
         }
 
-        public ActionResult ExcluirVaga(int vagaId)
+        public ActionResult ExcluirVaga(int Handle)
         {
             VagasDAO dao = new VagasDAO();
-            var vaga = dao.Buscar(vagaId);
+            var vaga = dao.Buscar(Handle);
             dao.Excluir(vaga);
             return View();
         }

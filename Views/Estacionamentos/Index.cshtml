@@ -18,10 +18,11 @@
         <tbody>
             @foreach (var estacionamento in ViewBag.estacionamentos)
             {
-                <tr>
-                    <td>@estacionamento.Nome</td>
-                    <td> <button id=" =ExibirTabelaDePreco" name=" ExibirTabelaDePreco" class=" btn btn-primary" onclick="window.location.href = '/Estacionamentos/ExibirTabelaDePreco?Handle= @estacionamento.Handle';">Exibir tabela de preço</button></td>
-                </tr>
+            <tr>
+                <td>@estacionamento.Nome</td>
+                <td> <button id=" =ExibirTabelaDePreco" name=" ExibirTabelaDePreco" class=" btn btn-primary" onclick="window.location.href = '/Estacionamentos/ExibirTabelaDePreco?Handle= @estacionamento.Handle';">Exibir tabela de preço</button></td>
+                <td><button id=" =ConsultarVagas" name="ConsultarVagas" class=" btn btn-success" onclick="window.location.href = '/Vagas/Index?Handle= @estacionamento.Handle';">Consultar Vagas</button></td>
+            </tr>
             }
         </tbody>
 
@@ -31,7 +32,7 @@
 
     <div class="row">
         <button id=" =CadastrarNovoEstacionamento" name=" CadastrarNovoEstacionamento" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/Adicionar';">Cadastrar Novo Estacionamento</button>
-        <button id=" =ConsultarVagas" name="ConsultarVagas" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/ConsultarVagas';">Consultar Vagas</button>
+
     </div>
 
 
