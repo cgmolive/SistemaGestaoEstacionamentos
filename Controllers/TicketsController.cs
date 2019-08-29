@@ -54,6 +54,11 @@ namespace SistemaGestaoEstacionamentos.Controllers
         [HttpGet]
         public ActionResult GerarTicket()
         {
+            Usuarios user = (Usuarios)Session["usuarioLogado"];
+            if (user.carroPadraoId == 0)
+            {
+                return RedirectToAction("SemCarroPadrao","Veiculos");
+            }
             EstacionamentosDAO dao = new EstacionamentosDAO();
             var lista = dao.Lista();
             ViewBag.Estacionamentos = lista;

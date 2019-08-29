@@ -61,10 +61,18 @@ namespace SistemaGestaoEstacionamentos.Controllers
         {
             Usuarios user = (Usuarios)Session["usuarioLogado"];
             VeiculosDAO dao = new VeiculosDAO();
+            UsuariosDAO usuariosDAO = new UsuariosDAO();
             veiculos.MotoristaId = user.Handle;
+
+    
             if (ModelState.IsValid)
             {
                 dao.Gravar(veiculos);
+                if (user.carroPadraoId == 0)
+                {
+                    user.carroPadraoId = veiculos.Handle;
+                }
+                usuariosDAO.Gravar(user);
             }
             return RedirectToAction("Index");
         }
@@ -101,6 +109,10 @@ namespace SistemaGestaoEstacionamentos.Controllers
             return View();
         }
 
+        public ActionResult SemCarroPadrao()
+        {
+            return View();
+        }
 
     }
 }
