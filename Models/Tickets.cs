@@ -21,28 +21,25 @@ namespace SistemaDeEstacionamentos.Model
         public Veiculos Veiculo { get; set; }
         public long VeiculoId { get; set; }
         public bool Validado { get; set; }
-
+        public int EstacionamentoId { get; set; }
+        public Estacionamento EstacionamentoDeOrigem { get; set; }
 
         public Tickets()
         {
             DataHoraEntrada = DateTime.Now;
             Validado = false;
-            //DECOY - Alterar assim que passagem de carencia estiver funcionando
 
         }
 
-        public void ValidaTicket(Tickets ticket)
+        public void ValidaTicket(Tickets ticket, TabelaDePreco tabelaDePreco)
         {
             DataHoraValidacao = DateTime.Now;
             TempoDecorrido = DataHoraValidacao.Subtract(DataHoraEntrada);
-            TabelaDePreco tabelaDePreco = new TabelaDePreco();
-            if (DataHoraValidacao.Subtract(DataHoraEntrada) < TempoDecorrido)
-            {
+            //TabelaDePreco tabelaDePreco = new TabelaDePreco();
+
                 Validade = DateTime.Now.Add(tabelaDePreco.ValidoPor(ticket));
                 Valor = tabelaDePreco.calculaPrecoTicket(TempoDecorrido);
                 Validado = true;
-
-            }
        
         }
     }

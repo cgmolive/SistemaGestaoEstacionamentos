@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SistemaDeEstacionamentos.Model.Tickets>
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Handle</th>
+                <th>Id do carro</th>
+                <th>Horario de Entrada</th>
+                <th>Horario de Validacao</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var tickets in ViewBag.Tickets)
+            {
+                <tr>
+                    <td>@tickets.Handle</td>
+                    <td>@tickets.VeiculoId</td>
+                    <td>@tickets.DataHoraEntrada</td>
+                    <td>@tickets.DataHoraValidacao</td>
+                    <td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <button id=" =Voltar" name=" Voltar" class=" btn btn-success" onclick="window.location.href = '/Home/MenuDoAdministrador';">Voltar</button>
+</body>
+</html>

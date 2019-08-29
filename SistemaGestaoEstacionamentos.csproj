@@ -220,13 +220,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20190826171156_Administrador.cs" />
-    <Compile Include="Migrations\20190826171156_Administrador.designer.cs">
-      <DependentUpon>20190826171156_Administrador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190827143555_TabelaHotFix.cs" />
-    <Compile Include="Migrations\20190827143555_TabelaHotFix.designer.cs">
-      <DependentUpon>20190827143555_TabelaHotFix.cs</DependentUpon>
+    <Compile Include="Migrations\20190829190058_EstacionamentoTicket.cs" />
+    <Compile Include="Migrations\20190829190058_EstacionamentoTicket.designer.cs">
+      <DependentUpon>20190829190058_EstacionamentoTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SistemaEstacionamentosContextModelSnapshot.cs" />
     <Compile Include="Models\Estacionamento.cs" />
@@ -250,6 +246,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\a.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -335,10 +332,13 @@
     <Content Include="Views\Vagas\Index.cshtml" />
     <Content Include="Views\Home\MenuDoAdministrador.cshtml" />
     <Content Include="Views\Usuarios\EditarLoginAdmin.cshtml" />
-    <Content Include="Views\Shared\TicketJaValidado.cshtml" />
     <Content Include="Views\Estacionamentos\ExibirTabelaDePreco.cshtml" />
     <Content Include="Views\Vagas\ExcluirVaga.cshtml" />
     <Content Include="Views\Estacionamentos\EditarTabela.cshtml" />
+    <Content Include="Views\Usuarios\EditarUsuario.cshtml" />
+    <Content Include="Views\Tickets\ListarTodos.cshtml" />
+    <Content Include="Views\Tickets\SemTIcket.cshtml" />
+    <Content Include="Views\Tickets\TicketJaValidado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

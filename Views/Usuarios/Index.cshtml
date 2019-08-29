@@ -20,20 +20,27 @@
                 <th>CEP</th>
                 <th>CPF</th>
                 <th>Usuario</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
 
         <tbody>
             @foreach (var usuarios in ViewBag.usuarios)
             {
-                <tr>
-                    <td>@usuarios.Nome</td>
-                    <td>@usuarios.Cpf</td>
-                    <td>@usuarios.Cep</td>
-                    <td>@usuarios.nomeDeUsuario</td>
+            <tr>
+                <td>@usuarios.Nome</td>
+                <td>@usuarios.Cpf</td>
+                <td>@usuarios.Cep</td>
+                <td>@usuarios.nomeDeUsuario</td>
+                <td><button id=" =EditarUsuario" name=" Editar Usuario" class=" btn btn-primary"
+                            onclick="window.location.href = '/Usuarios/EditarUsuario';">Editar Usuario</button></td>
+                
+                <td><button id=" =ExcluirUsuario" name=" Excluir Usuario" class=" btn btn-danger"
+                            onclick="window.location.href = '/Usuarios/Delete';">Excluir Usuario</button></td>
 
 
-                </tr>
+            </tr>
             }
         </tbody>
 

@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Sistema de Gestão de Estacionamentos</title>
     <link rel="stylesheet" href="~/Content/bootstrap.css" />
-    <link rel="stylesheet" href="~/Content/Site.css" />
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-       
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
         <a class="navbar-brand" href="/Home/Index">Sistema de Gestão de Estacionamentos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,7 +19,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                </li>
+
+
                 <li class="nav-item active">
                     <a class="nav-link" href="~/Tickets/Index">Tickets<span class="sr-only">(current)</span></a>
                 </li>
@@ -30,12 +31,21 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="~/Veiculos/Index">Lista de Veiculos<span class="sr-only">(current)</span></a>
                 </li>
-               
-                <li class="nav-item active">
-                    <a class="nav-link" href="~/Login/Logout">Logout<span class="sr-only">(current)</span></a>
-
             </ul>
-           
+
+            @if (Session.Keys.Cast<String>().Any(c => c == "UsuarioLogado"))
+            {
+
+                <button class="btn btn-outline-primary my-2 my-sm-0" onclick="window.location.href = '/Login/Logout';">Logout</button>
+            }
+
+            else
+            {
+                <button class="btn btn-outline-primary my-2 my-sm-0" onclick="window.location.href = '/Login/Login';">Login</button>
+            }
+
+
+    
         </div>
     </nav>
     <div class="container body-content">
@@ -45,6 +55,6 @@
             <p>&copy; @DateTime.Now.Year - Sistema de Gestão de Estacionamentos</p>
         </footer>
     </div>
-   
+
 </body>
 </html>

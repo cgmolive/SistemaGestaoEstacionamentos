@@ -60,6 +60,7 @@ namespace SistemaDeEstacionamentos
             modelBuilder.Entity<TabelaDePreco>()
                 .HasOne(c => c.Estacionamento)
                 .WithOne(e => e.tabelaDePreco);
+
         }
 
     }

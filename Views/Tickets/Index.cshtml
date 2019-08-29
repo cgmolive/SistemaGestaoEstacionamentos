@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SistemaDeEstacionamentos.Usuarios>
+﻿@model IEnumerable<SistemaDeEstacionamentos.Model.Tickets>
 
 @{
 }
@@ -20,6 +20,7 @@
                 <th>Horario de Entrada</th>
                 <th>Hora da Validação</th>
                 <th>Valor</th>
+                <th>Estacionamento de Origem</th>
                 <th></th>
             </tr>
         </thead>
@@ -32,7 +33,7 @@
                 <td>@tickets.DataHoraEntrada</td>
                 <td>@tickets.DataHoraValidacao</td>
                 <td>@tickets.Valor</td>
-                <td>
+                <td>@tickets.EstacionamentoDeOrigem</td>
                 <td><a class="btn btn-primary" href="/Tickets/ValidarTicket?Handle=@tickets.Handle">Validar</a></td>
 
 

@@ -15,7 +15,7 @@ namespace SistemaGestaoEstacionamentos.DAOs
 
             using (var repo = new SistemaEstacionamentosContext())
             {
-                if(veiculo.Placa != null)
+                if(veiculo.Placa != null && veiculo.TipoDoCarro != null)
                 {
                     repo.Veiculos.Add(veiculo);
                     repo.SaveChanges();

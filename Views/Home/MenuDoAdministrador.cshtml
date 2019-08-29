@@ -7,24 +7,27 @@
 
 <html>
 <head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
     <meta name="viewport" content="width=device-width" />
     <title>MenuDoAdministrador</title>
 </head>
-<body>
+<body class="a">
+
+    <h1>Menu do Administrador</h1>
+    <div class="align-content-center justify-content-center">
+        <button id=" =ListarUsuarios" name=" ListarUsuarios" class=" btn btn-primary" onclick="window.location.href = '/Usuarios/Index';">Listar Usuarios</button>
 
 
-    <button id=" =ListarUsuarios" name=" ListarUsuarios" class=" btn btn-primary" onclick="window.location.href = '/Usuarios/Index';">Listar Usuarios</button>
+        <button id=" =AdicionarEstacionamento" name=" AdicionarEstacionamento" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/Index';">Menu de Estacionamentos</button>
+
+        <button id=" =ListarTickets" name=" ListarTickets" class=" btn btn-primary" onclick="window.location.href = '/Tickets/ListarTodos';">Listar todos Tickets</button>
+
+        <button id=" =EditarCredenciaisAdmin" name=" EditarCredenciaisAdmin" class=" btn btn-primary" onclick="window.location.href = '/Usuarios/EditarLoginAdmin';">Editar credenciais de Administrador</button>
+
+        <button id="Logout" name=" Logout" class="btn btn-dark" onclick="window.location.href = 'Login/Logout';">Logout</button>
 
 
-    <button id=" =AdicionarEstacionamento" name=" AdicionarEstacionamento" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/Adicionar';">Adicionar Estacionamento</button>
-
-    <button id=" =ListarTickets" name=" ListarTickets" class=" btn btn-primary" onclick="window.location.href = '/Tickets/ListarTodos';">Listar todos Tickets</button>
-
-    <button id=" =EditarCredenciaisAdmin" name=" EditarCredenciaisAdmin" class=" btn btn-primary" onclick="window.location.href = '/Usuarios/EditarLoginAdmin';">Editar credenciais de Administrador</button>
-
-    <button id="Logout" name=" Logout" class="btn btn-dark" onclick="window.location.href = 'Login/Logout';Logout"
-
-    <div>
     </div>
 </body>
 </html>

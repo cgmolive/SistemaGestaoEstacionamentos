@@ -32,12 +32,11 @@ namespace SistemaDeEstacionamentos
             }
         }
 
-        public void Excluir(int Handle)
+        public void Excluir(Usuarios usuario)
         {
             using (var repo = new SistemaEstacionamentosContext())
             {
-                var usuarioParaRemover = repo.Usuarios.Find(Handle);
-                repo.Usuarios.Remove(usuarioParaRemover);
+                repo.Usuarios.Remove(usuario);
                 repo.SaveChanges();
 
             }
@@ -62,6 +61,14 @@ namespace SistemaDeEstacionamentos
             }
         }
 
+        public Usuarios RecuperarUsuario(int Handle)
+        {
+            using (var repo = new SistemaEstacionamentosContext())
+            {
+                return repo.Usuarios.FirstOrDefault(x => x.Handle == Handle);
+            }
+
+        }
 
         public Usuarios BuscaUsuario(string login, string senha)
         {

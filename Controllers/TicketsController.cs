@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace SistemaGestaoEstacionamentos.Controllers
 {
-    [AutorizacaoFilter]
+
     public class TicketsController : Controller
     {
         // GET: Tickets
@@ -29,50 +29,92 @@ namespace SistemaGestaoEstacionamentos.Controllers
             filterContext.Result = Result;
 
         }
+        [AutorizacaoFilter]
         public ActionResult Index()
         {
-
+            var user = (Usuarios)Session["UsuarioLogado"];
                 TicketDAO dao = new TicketDAO();
-                IList<Tickets> tickets = dao.Lista();
-                ViewBag.Tickets = tickets;
+
+            if (dao.Lista().Where(x => x.VeiculoId == user.carroPadraoId) == null)
+
+            {
+
+
+                return RedirectToAction("SemTicket", "Tickets");
+            }
+            else
+            {
+                var tickets = dao.Lista().Where(x => x.VeiculoId == user.carroPadraoId);
+
+
+            ViewBag.Tickets = tickets;
                 return View();
-                 
+            }
         }
-
-
+        [HttpGet]
         public ActionResult GerarTicket()
+        {
+            EstacionamentosDAO dao = new EstacionamentosDAO();
+            var lista = dao.Lista();
+            ViewBag.Estacionamentos = lista;
+            return View();
+        }
+        [HttpPost]
+        [AutorizacaoFilter]
+        public ActionResult GerarTicket(Tickets ticket)
         {
             Usuarios user = (Usuarios)Session["usuarioLogado"];
             
-            Tickets ticket = new Tickets();
             ticket.VeiculoId = user.carroPadraoId;
             TicketDAO dao = new TicketDAO();
             dao.GerarTicket(ticket);
-            return View();
+            return RedirectToAction("Index");
         }
-
+        [AutorizacaoFilter]
         public ActionResult ValidarTicket(Tickets ticket)
         {
-            if(ticket.Validado == false)
+            TicketDAO dao = new TicketDAO();
+            var ticketABuscar = dao.BuscaTicketPorId(ticket.Handle);
+            if (ticketABuscar.Validado == false)
                 {
                 Usuarios user = (Usuarios)Session["usuarioLogado"];
-                TicketDAO dao = new TicketDAO();
-                var ticketABuscar = dao.BuscaTicketPorId(ticket.Handle);
+  
+               
+                EstacionamentosDAO estacionamentosDAO = new EstacionamentosDAO();
+                var tabelaDePreco = estacionamentosDAO.BuscarTabelaDePreco(ticketABuscar.EstacionamentoId);
+
                 ticket.DataHoraEntrada = ticketABuscar.DataHoraEntrada;
-                ticket.ValidaTicket(ticket);
+ 
+                ticket.ValidaTicket(ticket, tabelaDePreco);
                 ticket.Validade = ticketABuscar.Validade;
                 ticket.VeiculoId = user.carroPadraoId;
+                ticket.EstacionamentoId = ticketABuscar.EstacionamentoId;
                 dao.Valida(ticket);
                 return View();
              }
             else
             {
-                return RedirectToAction("TicketJaValidado", "Shared");
+                return RedirectToAction("TicketJaValidado");
             }
           
         }
-
-
+        [AutorizacaoAdmin]
+        public ActionResult ListarTodos()
+        {
+            TicketDAO dao = new TicketDAO();
+            var tickets = dao.Lista();
+            ViewBag.Tickets = tickets;
+            return View();
+        }
+        [HttpGet]
+        public ActionResult SemTicket()
+        {
+            return View();
+        }
+        public ActionResult TicketJaValidado()
+        {
+            return View();
+        }
     }
 }
 

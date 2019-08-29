@@ -1,4 +1,4 @@
-﻿
+﻿@model SistemaDeEstacionamentos.Model.Tickets
 
 
 <!DOCTYPE html>
@@ -9,9 +9,42 @@
     <title>GerarTicket</title>
 </head>
 <body>
-    <div>
-        Ticket gerado com sucesso!
-    </div>
+    <table class="table">
+
+
+
+        <thead>
+            <tr>
+
+                <th>Nome</th>
+                <th>Id do Estacionamento</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var estacionamentos in ViewBag.Estacionamentos)
+            {
+                <tr>
+                    <td>@estacionamentos.Nome</td>
+                    <td>@estacionamentos.Handle</td>
+
+                </tr>
+            }
+
+            Favor, inserir Id do estacionamento desejado
+
+
+        </tbody>
+    </table>
+    <form action="~/Tickets/GerarTicket" method="post">
+        <label for="IdEstacionamento">Id do Estacionamento</label>
+        <input class="form-control" id="IdEstacionamento" name="EstacionamentoId" placeholder="Apenas números" required="" value=""
+               type="search" maxlength="8" pattern="[0-9]+$">
+
+        <input type="submit" class="btn btn-primary" value="Cadastrar" />
+    </form>
     <button id=" =Voltar" name=" Voltar" class=" btn btn-success" onclick="window.location.href = '/Tickets/Index';">Voltar</button>
 
 </body>

@@ -1,4 +1,4 @@
-﻿
+﻿@model SistemaDeEstacionamentos.Usuarios
 @{
     Layout = null;
 }
@@ -7,19 +7,29 @@
 
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width" />
     <title>EditarLoginAdmin</title>
 </head>
 <body>
-    <div class="form-group row">
-        <div class="col">
-            <label for="nomeDeUsuario">Nome de Usuario:</label>
-            <input class="form-control" id="nomeDeUsuario" name="NomeDeUsuario" />
+    <h1>Menu de edição de credenciais do administrador</h1>
+
+    @using (Html.BeginForm("EditarLoginAdmin", "Usuarios", FormMethod.Post))
+    {
+        <div class="form-group row">
+            <div class="col">
+                <label for="nomeDeUsuario">Nome de Usuario:</label>
+                <input class="form-control" id="nomeDeUsuario" name="NomeDeUsuario" />
+            </div>
+            <div class="col">
+                <label for="senha">Senha:</label>
+                <input class="form-control" id="senha" type="password" name="senha" />
+
+            </div>
         </div>
-        <div class="col">
-            <label for="senha">Senha:</label>
-            <input class="form-control" id="senha" type="password" name="senha" />
-        </div>
-    </div>
+        <input type="submit" class="btn btn-primary" value="Cadastrar" />
+        @Html.HiddenFor(x => x.Handle)
+        @Html.HiddenFor(x => x.Adm)
+    }
 </body>
 </html>

@@ -11,7 +11,7 @@ namespace SistemaGestaoEstacionamentos.Filtros
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            object usuario = filterContext.HttpContext.Session["usuarioLogado"];
+            object usuario = filterContext.HttpContext.Session["UsuarioLogado"];
             if(usuario == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Login", action = "Login" }));

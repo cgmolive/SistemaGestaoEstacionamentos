@@ -66,6 +66,8 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
                     b.Property<DateTime>("DataHoraValidacao");
 
+                    b.Property<int>("EstacionamentoId");
+
                     b.Property<TimeSpan>("TempoDecorrido");
 
                     b.Property<DateTime>("Validade");
@@ -77,6 +79,8 @@ namespace SistemaGestaoEstacionamentos.Migrations
                     b.Property<long>("VeiculoId");
 
                     b.HasKey("Handle");
+
+                    b.HasIndex("EstacionamentoId");
 
                     b.HasIndex("VeiculoId");
 
@@ -164,6 +168,11 @@ namespace SistemaGestaoEstacionamentos.Migrations
 
             modelBuilder.Entity("SistemaDeEstacionamentos.Model.Tickets", b =>
                 {
+                    b.HasOne("SistemaDeEstacionamentos.Estacionamento", "EstacionamentoDeOrigem")
+                        .WithMany()
+                        .HasForeignKey("EstacionamentoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("SistemaDeEstacionamentos.Model.Veiculos", "Veiculo")
                         .WithMany("tickets")
                         .HasForeignKey("VeiculoId")

@@ -63,10 +63,14 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
         [AutorizacaoAdmin]
         public ActionResult Delete(int Handle)
         {
-            
-            return View();
+          
+                UsuariosDAO dao = new UsuariosDAO();
+                var usuario = dao.RecuperarUsuario(Handle);
+                dao.Excluir(usuario);
+                return View();
         }
 
+        
         [AutorizacaoAdmin]
         [HttpGet]
         public ActionResult EditarLoginAdmin()
@@ -80,7 +84,24 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
         {
             UsuariosDAO dao = new UsuariosDAO();
             dao.Editar(administrador);
-            return RedirectToAction("MenuDoAdmin", "Home");
+            return RedirectToAction("MenuDoAdministrador", "Home");
+        }
+
+        [AutorizacaoAdmin]
+        [HttpGet]
+        public ActionResult EditarUsuario(int Handle)
+        {
+            UsuariosDAO dao = new UsuariosDAO();
+            var usuario = dao.RecuperarUsuario(Handle);
+            return View(usuario);
+        }
+        [AutorizacaoAdmin]
+        [HttpPost]
+        public ActionResult EditarUsuario(Usuarios usuario)
+        {
+            UsuariosDAO dao = new UsuariosDAO();
+            dao.Editar(usuario);
+            return RedirectToAction("Index", "Usuarios");
         }
     }
 
