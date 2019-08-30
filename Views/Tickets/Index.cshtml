@@ -31,7 +31,13 @@
             <tr>
                 <td>@tickets.Handle</td>
                 <td>@tickets.DataHoraEntrada</td>
-                <td>@tickets.DataHoraValidacao</td>
+                @if (tickets.DataHoraValidacao.ToString() != "01/01/0001 00:00:00"){
+                    <td>@tickets.DataHoraValidacao</td>
+                }
+                else
+                {
+                    <td>-</td>
+                }
                 <td>@tickets.Valor</td>
                 <td>@tickets.EstacionamentoDeOrigem</td>
                 <td><a class="btn btn-primary" href="/Tickets/ValidarTicket?Handle=@tickets.Handle">Validar</a></td>
