@@ -72,7 +72,7 @@ namespace SistemaGestaoEstacionamentos.Controllers
                 {
                     user.carroPadraoId = veiculos.Handle;
                 }
-                usuariosDAO.Gravar(user);
+                usuariosDAO.Editar(user);
             }
             return RedirectToAction("Index");
         }
