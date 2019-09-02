@@ -10,26 +10,60 @@
 
     <meta name="viewport" content="width=device-width" />
     <title>EditarLoginAdmin</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
 </head>
 <body>
-    <h1>Menu de edição de credenciais do administrador</h1>
+    
 
     @using (Html.BeginForm("EditarLoginAdmin", "Usuarios", FormMethod.Post))
     {
-        <div class="form-group row">
-            <div class="col">
-                <label for="nomeDeUsuario">Nome de Usuario:</label>
-                <input class="form-control" id="nomeDeUsuario" name="NomeDeUsuario" />
-            </div>
-            <div class="col">
-                <label for="senha">Senha:</label>
-                <input class="form-control" id="senha" type="password" name="senha" />
+        <div class="container-fluid ">
+            <!-- Outer Row -->
+            <div class="row justify-content-center ">
+
+                <div class="col-xl-8 col-lg-8 col-md-6">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5 ">
+                        <div class="card-body p-0 bodyGeral">
+                            <!-- Nested Row within Card Body -->
+
+                            <div class="p-5 ">
+
+                                <h1 class="text-center">Menu de edição de credenciais do administrador</h1>
+
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for="nomeDeUsuario">Nome de Usuario:</label>
+                                        <input class="form-control" id="nomeDeUsuario" name="NomeDeUsuario" required="" value="" />
+                                    </div>
+                                    <div class="col">
+                                        <label for="senha">Senha:</label>
+                                        <input class="form-control" id="senha" type="password" name="senha" required="" value="" />
+
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="Cadastrar" />
+                                @Html.HiddenFor(x => x.Handle)
+                                @Html.HiddenFor(x => x.Adm)
+
+
+                                <button id="Voltar" name="Voltar" class="btn btn-secondary" onclick="window.location.href =
+        '/Home/MenuDoAdministrador';">
+                                    Voltar
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
+
         </div>
-        <input type="submit" class="btn btn-primary" value="Cadastrar" />
-        @Html.HiddenFor(x => x.Handle)
-        @Html.HiddenFor(x => x.Adm)
     }
+
 </body>
 </html>

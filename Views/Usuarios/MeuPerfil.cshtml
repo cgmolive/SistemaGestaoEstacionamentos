@@ -1,0 +1,46 @@
+﻿@model SistemaDeEstacionamentos.Usuarios
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CEP</th>
+                <th>CPF</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+
+        <tbody>
+           
+                <tr>
+                    <td>@ViewBag.Usuarios.Nome</td>
+                    <td>@ViewBag.Usuarios.Cpf</td>
+                    <td>@ViewBag.Usuarios.Cep</td>
+                    <td>@ViewBag.Usuarios.nomeDeUsuario</td>
+
+
+                </tr>
+        </tbody>
+
+    </table>
+
+    <button id=" =Voltar" name=" Voltar" class=" btn btn-secondary" onclick="window.location.href = '/Tickets/Index';">Voltar</button>
+    <button id=" Editar" name="Editar" class="btn btn-primary" onclick="window.location.href = '/Usuarios/EditarUsuario?Handle=@ViewBag.Usuarios.Handle';">Editar Perfil</button>
+</body>
+</html>

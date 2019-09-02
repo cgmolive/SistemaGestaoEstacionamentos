@@ -1,38 +1,56 @@
 ﻿<!DOCTYPE html>
 
+@{ 
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Site.css" />
+<meta name="viewport" content="width=device-width" />
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+
 </head>
 <body>
-    <table class="table">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <thead>
-            <tr>
-                <th>Nome</th>
+        <a class="navbar-brand" href="/Home/Index">Sistema de Gestão de Estacionamentos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="container-fluid">
+        <table class="table">
 
-            </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th>Nome</th>
 
-        <tbody>
-            @foreach (var estacionamento in ViewBag.estacionamentos)
-            {
-            <tr>
-                <td>@estacionamento.Nome</td>
-                <td> <button id=" =ExibirTabelaDePreco" name=" ExibirTabelaDePreco" class=" btn btn-primary" onclick="window.location.href = '/Estacionamentos/ExibirTabelaDePreco?Handle= @estacionamento.Handle';">Exibir tabela de preço</button></td>
-                <td><button id=" =ConsultarVagas" name="ConsultarVagas" class=" btn btn-success" onclick="window.location.href = '/Vagas/Index?Handle= @estacionamento.Handle';">Consultar Vagas</button></td>
-            </tr>
-            }
-        </tbody>
+                </tr>
+            </thead>
 
-    </table>
+            <tbody>
+                @foreach (var estacionamento in ViewBag.estacionamentos)
+                {
+                    <tr>
+                        <td>@estacionamento.Nome</td>
+                        <td> <button id=" =ExibirTabelaDePreco" name=" ExibirTabelaDePreco" class=" btn btn-secondary" onclick="window.location.href = '/Estacionamentos/ExibirTabelaDePreco?Handle= @estacionamento.Handle';">Exibir tabela de preço</button></td>
+                        <td><button id=" =ConsultarVagas" name="ConsultarVagas" class=" btn btn-primary" onclick="window.location.href = '/Vagas/Index?Handle= @estacionamento.Handle';">Consultar Vagas</button></td>
+                    </tr>
+                }
+            </tbody>
 
-   
+        </table>
 
-    <div class="row">
-        <button id=" =CadastrarNovoEstacionamento" name=" CadastrarNovoEstacionamento" class=" btn btn-success" onclick="window.location.href = '/Estacionamentos/Adicionar';">Cadastrar Novo Estacionamento</button>
 
+
+        <div class="container-fluid">
+            <a id="CadastrarNovoEstacionamento" name="CadastrarNovoEstacionamento" class=" btn btn-success align-content-center justify-content-center" href ="/Estacionamentos/Adicionar">Cadastrar Novo Estacionamento</a>
+
+        </div>
     </div>
 
 

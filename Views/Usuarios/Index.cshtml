@@ -45,16 +45,11 @@
                     <td>@usuarios.Cpf</td>
                     <td>@usuarios.Cep</td>
                     <td>@usuarios.nomeDeUsuario</td>
-                    <td>
-                        <button id=" =EditarUsuario" name=" Editar Usuario" class=" btn btn-primary"
-                                onclick="window.location.href = '/Usuarios/EditarUsuario';">
-                            Editar Usuario
-                        </button>
-                    </td>
+
 
                     <td>
                         <button id=" =ExcluirUsuario" name=" Excluir Usuario" class=" btn btn-danger"
-                                onclick="window.location.href = '/Usuarios/Delete';">
+                                onclick="window.location.href = '/Usuarios/Delete?Handle=@usuarios.Handle';">
                             Excluir Usuario
                         </button>
                     </td>
@@ -65,6 +60,8 @@
         </tbody>
 
     </table>
+
+    <button id=" =Voltar" name=" Voltar" class=" btn btn-primary justify-content-center" onclick="window.location.href = '/Home/MenuDoAdministrador';">Voltar</button>
 
 </body>
 </html>

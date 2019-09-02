@@ -13,8 +13,8 @@
 
 </head>
 <body>
-    <label>Buscar</label>
-    <input type="text" name="filtro" id="filtro" placeholder="Digite a placa do veículo">
+    @*<label>Buscar</label>*@
+    <input type="text" name="filtro" id="filtro" class="col-md-3 form-control" placeholder="Busque pela placa do veículo">
     <table class="table">
 
         <thead>
@@ -34,7 +34,7 @@
                     <td class="placa">@veiculos.Placa</td>
                     <td>@veiculos.TipoDoCarro</td>
                     <td><a class="btn btn-danger" type="submit" href="/Veiculos/Excluir?Handle=@veiculos.Handle">Excluir</a></td>
-                    <td><a class=" = btn btn-primary" type="submit" href="/Veiculos/DefinirCarroPadrao?Handle=@veiculos.Handle">Definir como padrão</a></td>
+                    <td><a class="btn btn-primary" type="submit" href="/Veiculos/DefinirCarroPadrao?Handle=@veiculos.Handle">Definir como padrão</a></td>
 
 
 

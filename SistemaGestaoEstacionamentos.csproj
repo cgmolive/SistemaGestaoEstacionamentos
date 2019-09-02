@@ -340,6 +340,7 @@
     <Content Include="Views\Tickets\SemTIcket.cshtml" />
     <Content Include="Views\Tickets\TicketJaValidado.cshtml" />
     <Content Include="Views\Veiculos\SemCarroPadrao.cshtml" />
+    <Content Include="Views\Usuarios\MeuPerfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

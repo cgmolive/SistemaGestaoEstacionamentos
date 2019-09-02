@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<SistemaDeEstacionamentos.Model.Tickets>
 
 @{
+    Layout = null;
 }
 
-<!DOCTYPE html>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Site.css" />
+<meta name="viewport" content="width=device-width" />
 
 <html>
 <head>
@@ -12,6 +15,13 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="/Home/Index">Sistema de Gestão de Estacionamentos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
     <table class="table">
 
         <thead>
@@ -38,6 +48,6 @@
         </tbody>
 
     </table>
-    <button id=" =Voltar" name=" Voltar" class=" btn btn-success" onclick="window.location.href = '/Home/MenuDoAdministrador';">Voltar</button>
+    <button id=" =Voltar" name=" Voltar" class=" btn btn-primary" onclick="window.location.href = '/Home/MenuDoAdministrador';">Voltar</button>
 </body>
 </html>

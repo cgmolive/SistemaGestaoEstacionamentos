@@ -49,15 +49,16 @@ namespace SistemaGestaoEstacionamentos.Controllers
             else if (usuario != null)
             {
                 Session["UsuarioLogado"] = usuario;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Tickets");
             }
 
             else
             {
                 ViewBag.error = "Login ou senha incorretos!";
-                return RedirectToAction("Error", "Shared");
+                return RedirectToAction("Login", "Login");
             }
         }
+
 
 
         public ActionResult Logout()

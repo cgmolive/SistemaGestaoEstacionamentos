@@ -47,7 +47,7 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
 
                 UsuariosDAO dao = new UsuariosDAO();
                 dao.Gravar(usuario);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Login");
         }
 
 
@@ -87,21 +87,28 @@ namespace SistemaGestaoEstacionamentosMVC.Controllers
             return RedirectToAction("MenuDoAdministrador", "Home");
         }
 
-        [AutorizacaoAdmin]
-        [HttpGet]
-        public ActionResult EditarUsuario(int Handle)
+        [AutorizacaoFilter]
+            public ActionResult MeuPerfil()
         {
-            UsuariosDAO dao = new UsuariosDAO();
-            var usuario = dao.RecuperarUsuario(Handle);
+            Usuarios usuario = (Usuarios)Session["UsuarioLogado"];
+            ViewBag.Usuarios = usuario;
+            return View();
+        }
+
+        [AutorizacaoFilter]
+        [HttpGet]
+        public ActionResult EditarUsuario()
+        {
+            Usuarios usuario = (Usuarios)Session["UsuarioLogado"];
             return View(usuario);
         }
-        [AutorizacaoAdmin]
+        [AutorizacaoFilter]
         [HttpPost]
         public ActionResult EditarUsuario(Usuarios usuario)
         {
             UsuariosDAO dao = new UsuariosDAO();
             dao.Editar(usuario);
-            return RedirectToAction("Index", "Usuarios");
+            return RedirectToAction("Index", "Tickets");
         }
     }
 
